@@ -30,11 +30,11 @@ const Header = () => {
                 </div>
                 <div className="col-5">
                     <div className="input-group ">
-                    <input 
-                    type="text" 
-                    class="form-control py-2" 
-                    placeholder="Search Product Here..." 
-                    aria-label="Search Product Here..." 
+                    <input
+                    type="text"
+                    class="form-control py-2"
+                    placeholder="Search Product Here..."
+                    aria-label="Search Product Here..."
                     aria-describedby="basic-addon2"
                     />
                     <span className="input-group-text p-3" id="basic-addon2">
@@ -81,24 +81,23 @@ const Header = () => {
                 </div>
             </div>
         </div>
-    </header>  
+    </header>
     <header className="header-bottom py-3">
         <div className="container-xxl">
             <div className="row">
             <div className="col-12">
-                <div className="menu-buttom d-flex align-items-center gap-30">
-                    <div>
+                <div className="menu-bottom d-flex align-items-center gap-30">
                     <div class="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle bg-trnsparent border-0 gap-15" 
-                    type="button" 
-                    id="dropdownMenuButton1" 
-                    data-bs-toggle="dropdown" 
+                    <button className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                     >
                     <image src="images/menu.svg" alt=""/>
                     <span>Shop Categories</span>
                      </button>
-                    <ul class="dropdown-menu" 
+                    <ul class="dropdown-menu"
                     aria-labelledby="dropdownMenuButton1"
                     >
                     <li>
@@ -110,7 +109,6 @@ const Header = () => {
                     <li><a class="dropdown-item" href="#">Something else here</a>
                     </li>
                     </ul>
-                    </div>
                     </div>
                         <div className="menu-links">
                         <div className="d-flex align-items-center gap-15">

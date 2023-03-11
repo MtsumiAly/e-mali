@@ -31,7 +31,7 @@ a {
 
 /*Header part*/
 .header-top-strip {
-  border-bottom:1px solid var(--colr-3b4149);
+  border-bottom:1px solid var(--color-3b4149);
   background-color: var(--color-131921);
 }
 .header-upper {
@@ -51,19 +51,19 @@ a {
 .header-bottom .menu-links a,
 .header-bottom .dropdown button{
   color: white;
-  font: size 15px;
+  font-size: 15px;
   line-height: 18px;
   font-weight: 400;
-  letter-spacing: .3;
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 /**Styling the dropdown*/
 .header-bottom .dropdown button{
   color: white;
-  font: size 15px;
+  font-size: 15px;
   line-height: 18px;
   font-weight: 400;
-  letter-spacing: .3;
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 /*
@@ -71,7 +71,7 @@ a {
   contain: url("../public/images/menu.svg");
 }
 */
-/*removing the shadow propert in button*/
+/*removing the shadow property in button*/
 .header-bottom .dropdown button:focus {
   box-shadow: none;
 }
