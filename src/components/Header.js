@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 const Header = () => {
   return (
     <>
-    <header className="header-top-strip py-3">
+    <header className="header-top-strip py-1">
         <div className="container-xxl">
             <div className="row">
                 <div className="col-6">
@@ -30,11 +30,11 @@ const Header = () => {
                 </div>
                 <div className="col-5">
                     <div className="input-group ">
-                    <input 
-                    type="text" 
-                    class="form-control py-2" 
-                    placeholder="Search Product Here..." 
-                    aria-label="Search Product Here..." 
+                    <input
+                    type="text"
+                    class="form-control py-2"
+                    placeholder="Search Product Here..."
+                    aria-label="Search Product Here..."
                     aria-describedby="basic-addon2"
                     />
                     <span className="input-group-text p-3" id="basic-addon2">
@@ -81,43 +81,34 @@ const Header = () => {
                 </div>
             </div>
         </div>
-    </header>  
-    <header className="header-bottom py-3">
+    </header>
+    <header className="header-bottom py-2">
         <div className="container-xxl">
             <div className="row">
             <div className="col-12">
-                <div className="menu-buttom d-flex align-items-center gap-30">
-                    <div>
+                <div className="menu-bottom d-flex align-items-center gap-30">
                     <div class="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle bg-trnsparent border-0 gap-15  d-flex align-items-center" 
-                    type="button" 
-                    id="dropdownMenuButton1" 
-                    data-bs-toggle="dropdown" 
-                    aria-expanded="false"
-                    >
-                    <img src="/images/menu.svg" alt=""/>
-                    <span className="me-5 d-inline-block">Shop Categories</span>
-                     </button>
-                    <ul class="dropdown-menu" 
-                    aria-labelledby="dropdownMenuButton1"
-                    >
-                    <li>
-                        <Link className="dropdown-item text-white" to="">
-                            Action
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="dropdown-item text-white" to="">
-                            Another action
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="dropdown-item text-white" to="">
-                            Something else here
-                        </Link>
-                    </li>
-                    </ul>
-                    </div>
+                        <button className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15"
+                        type="button"
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        >
+                        <img src="/images/menu.svg" alt=""/>
+                        <span>Shop Categories</span>
+                         </button>
+                        <ul class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton1"
+                        >
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Action</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Another action</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                        </ul>
                     </div>
                         <div className="menu-links">
                         <div className="d-flex align-items-center gap-15">

@@ -31,8 +31,31 @@ a {
 
 /*Header part*/
 .header-top-strip {
-  border-bottom:1px solid var(--colr-3b4149);
+  border-bottom:1px solid var(--color-3b4149);
   background-color: var(--color-131921);
+}
+/*Top strip section*/
+.col-6 {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+/*e-mali logo*/
+.col-2 {
+  padding-left: 60px;
+}
+/*middle section in header*/
+.col-5 {
+  padding-right: 60px;
+}
+.col-12 {
+  padding-left: 35px;
+}
+.menu-bottom span {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+.menu-links{
+  margin-left: 30px;
 }
 .header-upper {
   background-color: var(--color-131921);
@@ -51,19 +74,19 @@ a {
 .header-bottom .menu-links a,
 .header-bottom .dropdown button{
   color: white;
-  font: size 15px;
+  font-size: 15px;
   line-height: 18px;
   font-weight: 400;
-  letter-spacing: .3;
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 /**Styling the dropdown*/
 .header-bottom .dropdown button{
   color: white;
-  font: size 15px;
+  font-size: 15px;
   line-height: 18px;
   font-weight: 400;
-  letter-spacing: .3;
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 /*
@@ -71,10 +94,11 @@ a {
   contain: url("../public/images/menu.svg");
 }
 */
-/*removing the shadow propert in button*/
+/*removing the shadow property in button*/
 .header-bottom .dropdown button:focus {
   box-shadow: none;
 }
+<<<<<<< HEAD
 .header-bottom .dropdown-menu{
   background-color: var(--color-131921);
   width: 100%;
@@ -101,3 +125,6 @@ footer:not(:first-child) {
   border-top: 1px solid rgb(255, 255, 255,0.1);
 }
 /*footer part end here**/ 
+=======
+/*Header part End Here */
+>>>>>>> 50c34b32f659c1440613bf59c3b7308e46123cf4
