@@ -75,4 +75,29 @@ a {
 .header-bottom .dropdown button:focus {
   box-shadow: none;
 }
+.header-bottom .dropdown-menu{
+  background-color: var(--color-131921);
+  width: 100%;
+  transform: translate3d(0px,57px,0px)!important;
+}
+/**styling the class drop down-items*/
+.header-bottom .dropdown-item{
+  padding: 20px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--color-3b4149);
+}
+.header-bottom .dropdown-item:hover{
+  background-color: transparent;
+  color: var(--color-febd69)!important;
+}
 /*Header part End Here */
+
+/*Footer part start Here**/
+footer{
+  background-color: var(--color-232f3e);
+}
+/**dividing the footer to 3 parts*/
+footer:not(:first-child) {
+  border-top: 1px solid rgb(255, 255, 255,0.1);
+}
+/*footer part end here**/ 
