@@ -254,3 +254,8 @@ footer.input-group-text{
 /*End of category section*/
 /*End of Home Page**/
 /*marquee--cardwrapper--*/
+.card-wrapper {
+  background-color: white;
+  box-shadow: 0 0 10px #0000001a;
+  padding: 15px;
+}
