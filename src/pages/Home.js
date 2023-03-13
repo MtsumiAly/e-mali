@@ -198,11 +198,11 @@ const Home = () => {
         </div>
       </div>
     </section>
-    <section className="merque-wrapper home-wrapper-2 py-5">
+    <section className="marquee-wrapper home-wrapper-2 py-3">
       <div className="container-xxl">
         <div className="row">
           <div className="col-12">
-            <div className="merquee-inner-wrapper card-wrapper">
+            <div className="marquee-inner-wrapper card-wrapper">
             <Marquee className='d-flex'>
               <div className="mx-4 w-25">
                 <img src="/images/brand-01.png" alt="brand"/>

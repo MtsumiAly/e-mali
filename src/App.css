@@ -282,12 +282,13 @@ footer.input-group-text{
 
 /*End of category section*/
 /*End of Home Page**/
-/*marquee--cardwrapper--*/
+/*marquee--*/
 .card-wrapper{
   background-color: white;
   box-shadow: 0 0 10px #0000001a;
   padding: 4px;
 }
+
 /*Ends Here*/
 /*blogcads start Here*/
 .blog-card {
@@ -338,10 +339,13 @@ footer.input-group-text{
   /*not visible until hover*/
   overflow: hidden;
 }
-.product-card.product-image{
+.product-card .product-image {
   height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.product-card.product-image img{
+.product-card .product-image img{
   object-fit: contain;
   transition: 0.3s;
 }
@@ -358,7 +362,7 @@ footer.input-group-text{
   display: block;
 }
 
-/*product card hover--hiden--*/
+/*product card hover--hidden--*/
 .product-card:hover .action-bar{
   right: 10px;
 }
