@@ -217,7 +217,7 @@ const Home = () => {
       <div className="container-xxl">
         <div className="row">
           <div className="col-12">
-            <div className="merquee-inner-wrapper card-wrapper">
+            <div className="marquee-inner-wrapper card-wrapper">
             <Marquee className='d-flex'>
               <div className="mx-4 w-25">
                 <img src="/images/brand-01.png" alt="brand"/>
