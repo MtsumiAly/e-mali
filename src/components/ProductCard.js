@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const ProductCard = () => {
   return (
     <div className="col-3">
-        <div className="product-card position-relative">
-            <div className="whishlist-icon position-absolute">
+        <Link className="product-card position-relative">
+            <div className="wishlist-icon position-absolute">
                 <Link>
                 <img src="images/wish.svg" alt="wishlist"/>
                 </Link>
@@ -15,7 +15,7 @@ const ProductCard = () => {
                     className="img-fluid" 
                     alt="product image"
                 />
-                <img src="images/watch.jpg" 
+                <img src="images/speaker.jpg" 
                     className="img-fluid" 
                     alt="product image"
                 />
@@ -47,7 +47,7 @@ const ProductCard = () => {
                 </Link>
                 </div> 
             </div>
-        </div>
+        </Link>
     </div>
   );
 }
