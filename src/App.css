@@ -42,6 +42,7 @@ a {
 .gap-15{
   gap: 15px;
 }
+
 /*styling main-banner-content--Buy button--*/
 .button{
   background-color: var(--color-232f3e);
@@ -150,7 +151,7 @@ footer{
 footer:not(:first-child) {
   border-top: 1px solid rgb(255, 255, 255,0.1);
 }
-
+/*footer part end here**/
 /**Styling top footer child --input group text*/
 footer.input-group-text{
   background-color: var(--color-232f3e);
@@ -389,3 +390,10 @@ footer.input-group-text{
   right: 15px;
 }
 /*Product card Ends Here*/
+/*Special Product**/
+.special-product-card{
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+/*Special product Ends Here*/
