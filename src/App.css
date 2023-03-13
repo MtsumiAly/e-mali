@@ -363,7 +363,7 @@ footer.input-group-text{
 /*product details price p.price*/
 .product-card .product-details p.price{
   font-size: 16px;
-  color: var(--color-1c1c1b)!important;
+  color: var(--color-1c1c1b);
 }
 /*action bar*/
 .action-bar{
