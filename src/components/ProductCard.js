@@ -25,11 +25,11 @@ const ProductCard = () => {
                 <h5 className="product-title">
                     Aveeno for kids 2in1 Shampoo and Shower Gel
                 </h5>
-                <ReactStars 
-                    count={5} 
-                    size={24} 
-                    value="3" 
-                    edit={false} 
+                <ReactStars
+                    count={5}
+                    size={24}
+                    value="3"
+                    edit={false}
                     activeColor="#ffd700"
                 />
                 <p className="price">$100.00</p>
@@ -45,7 +45,7 @@ const ProductCard = () => {
                 <Link>
                 <img src="images/add-cart.svg" alt="add-cart"/>
                 </Link>
-                </div> 
+                </div>
             </div>
         </Link>
     </div>
