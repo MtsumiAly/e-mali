@@ -135,52 +135,52 @@ const Home = () => {
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Smart Tv</h6>
+                  <h6>Acnes Vitamin Cream 40gm</h6>
                   <p>10 items</p>
                 </div>
-                <img src="/images/tv.jpg" alt="camera"/>
+                <img src="/images/acnes.jpeg" alt="acnes" style={{ width: '50%', maxWidth: '500px', height: 'auto'}}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Smart Watches</h6>
+                  <h6>Veet Removal Cream Sensitive Skin - 100ML</h6>
                   <p>10 items</p>
                 </div>
-                <img src="/images/tv.jpg" alt="camera"/>
+                <img src="/images/veet.jpg" alt="veet" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>HeadPhones</h6>
-                  <p>10 items</p>
+                  <h6>Cocopulp Skin Lightening & Brightening Face & Body Cream</h6>
+                  <p>5 items</p>
                 </div>
-                <img src="/images/headphone.jpg" alt="camera"/>
+                <img src="/images/Cocopul.jpg" alt="camera" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Cameras</h6>
-                  <p>10 items</p>
+                  <h6>St Ives Renewing Collagen & Elastin Moisturizer</h6>
+                  <p>5 items</p>
                 </div>
-                <img src="/images/camera.jpg" alt="camera"/>
+                <img src="/images/st_ives.jpg" alt="st.ives cream" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Smart Tv</h6>
-                  <p>10 items</p>
+                  <h6>Vitamin C Anti-Aging Brightening Serum</h6>
+                  <p>4 items</p>
                 </div>
-                <img src="/images/tv.jpg" alt="camera"/>
+                <img src="/images/anti_aging.jpg" alt="anti_aging cream" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Smart Watches</h6>
-                  <p>10 items</p>
+                  <h6>NIVEA Moisturising Creme Jar 200ml</h6>
+                  <p>12 items</p>
                 </div>
-                <img src="/images/tv.jpg" alt="camera"/>
+                <img src="/images/nivea_soft.jpg" alt="Nivea Soft" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
               <div className="d-flex gap-15 align-items-center">
                 <div>
-                  <h6>HeadPhones</h6>
+                  <h6>Garnier Skin Active Pure Charcoal Black Tissue Face Mask</h6>
                   <p>10 items</p>
                 </div>
-                <img src="/images/headphone.jpg" alt="camera"/>
+                <img src="/images/garnier_skin_active.jpg" alt="garnier Mask" style={{ width: '50%', maxWidth: '500px', height: 'auto' }}/>
               </div>
             </div>
           </div>
@@ -216,7 +216,7 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img src="images/tab2.jpg"
-              className="img-fluid" 
+              className="img-fluid"
               alt="famous"/>
               <div className="famous-content position-absolute">
               <h5 className="text-dark">Studio Display</h5>
@@ -228,7 +228,7 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img src="images/tab3.jpg"
-              className="img-fluid" 
+              className="img-fluid"
               alt="famous"/>
               <div className="famous-content position-absolute">
               <h5 className="text-dark">SMARTPHONE</h5>
@@ -241,7 +241,7 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img src="images/tab3.jpg"
-              className="img-fluid" 
+              className="img-fluid"
               alt="famous"/>
               <div className="famous-content position-absolute">
               <h5 className="text-dark">HOME SPEAKER</h5>

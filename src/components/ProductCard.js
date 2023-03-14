@@ -11,19 +11,19 @@ const ProductCard = () => {
                 </Link>
             </div>
             <div className="product-image">
-                <img src="images/watch.jpg" 
-                    className="img-fluid" 
+                <img src="images/garnier_skin_active.jpg"
+                    className="img-fluid"
                     alt="product image"
                 />
-                <img src="images/speaker.jpg" 
-                    className="img-fluid" 
+                <img src="images/garnier_hydrabomb.jpg"
+                    className="img-fluid"
                     alt="product image"
                 />
             </div>
             <div className="product-details">
-                <h6 className="brand">Aveeno</h6>
+                <h4 className="brand">Garnier</h4>
                 <h5 className="product-title">
-                    Aveeno for kids 2in1 Shampoo and Shower Gel
+                    Garnier Skin Active Pure Charcoal Black Tissue Face Mask
                 </h5>
                 <ReactStars
                     count={5}
@@ -32,7 +32,7 @@ const ProductCard = () => {
                     edit={false}
                     activeColor="#ffd700"
                 />
-                <p className="price">$100.00</p>
+                <p className="price">Ksh 350.00</p>
             </div>
             <div className="action-bar position-absolute">
                <div className="d-flex flex-column gap-15">
