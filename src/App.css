@@ -175,6 +175,14 @@ footer.input-group-text{
 
 /*Home Page*/
 /*styling main-banner-content*/
+.free-delivery-sticker {
+  position: absolute;
+  top: -10px;
+  left: -50px;
+  z-index: 1;
+  /*opacity: 0.4;*/
+}
+
 .main-banner-content{
   top: 15%;
   left: 5%;
