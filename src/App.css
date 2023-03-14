@@ -442,3 +442,34 @@ footer.input-group-text{
   color: white;
 }
 /*Famous Card Ends Here*/
+/*Our store*/
+/*Styling the filter four Card*/
+.filter-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+/*---Filter title styling---*/
+.filter-title {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--color-1c1c1b);
+}
+/*----filter child card--ul->li---*/
+.filter-card ul,
+.filter-card .form-check-label{
+  list-style-type:none;
+  font-size: 13px;
+  line-height: 30px;
+  color: var(--color-777777);
+  cursor: pointer;
+}
+.sub-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-1c1c1b);
+  margin-bottom: 15px;
+}
+/*Our store Ends here*/
