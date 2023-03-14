@@ -40,35 +40,34 @@ const Home = () => {
               </div>
             </div>
             <div className="small-banner position-relative">
-              <img src="/images/catbanner-03.jpg "
+              <img src="/images/neutrogena2.jpg "
               className="img-fluid rounded"
               alt="main banner"/>
               <div className="small-banner-content position-absolute">
-                <h4>New Arrival</h4>
-                <h5>Buy Ipad Air</h5>
-                <p>From $999.00 <br/> or $41.62/mo.</p>
+                {/*<h4>New Arrival</h4>*/}
+                {/*<h5>Buy Ipad Air</h5>*/}
+                {/*<p>From $999.00 <br/> or $41.62/mo.</p>*/}
+              </div>
+            </div>
+            <div className="small-banner position-relative">
+              <img src="/images/neutrogena3.jpg "
+              className="img-fluid rounded"
+              alt="main banner"/>
+              <div className="small-banner-content position-absolute">
+                {/*<h4>FREE ENGRAVING</h4>*/}
+                {/*<h5>AirPods Max</h5>*/}
+                {/*<p>From $999.00 <br/> or $41.62/mo.</p>*/}
 
               </div>
             </div>
             <div className="small-banner position-relative">
-              <img src="/images/catbanner-04.jpg "
+              <img src="/images/neutrogena5.jpeg "
               className="img-fluid rounded"
               alt="main banner"/>
               <div className="small-banner-content position-absolute">
-                <h4>FREE ENGRAVING</h4>
-                <h5>AirPods Max</h5>
-                <p>From $999.00 <br/> or $41.62/mo.</p>
-
-              </div>
-            </div>
-            <div className="small-banner position-relative">
-              <img src="/images/catbanner-01.jpg "
-              className="img-fluid rounded"
-              alt="main banner"/>
-              <div className="small-banner-content position-absolute">
-                <h4>BEST SALES</h4>
-                <h5>Laptops Max</h5>
-                <p>From $999.00 <br/> or $41.62/mo.</p>
+                {/*<h4>BEST SALES</h4>*/}
+                {/*<h5>Laptops Max</h5>*/}
+                {/*<p>From $999.00 <br/> or $41.62/mo.</p>*/}
 
               </div>
             </div>
@@ -129,10 +128,10 @@ const Home = () => {
             <div className="categories d-flex flex-wrap justify-content-between align-items-center">
               <div className="d-flex gap align-items-center">
                 <div>
-                  <h6>Cameras</h6>
+                  {/*<h6>Cameras</h6>*/}
                   <p>10 items</p>
                 </div>
-                <img src="/images/camera.jpg" alt="camera"/>
+                <img src="/images/neutrogena_deep_clean.jpg" alt="neutrogena deep clean" style={{ width: '50%', maxWidth: '500px', height: 'auto'}}/>
               </div>
               <div className="d-flex gap align-items-center">
                 <div>
