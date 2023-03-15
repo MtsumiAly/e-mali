@@ -6,6 +6,56 @@ import ProductCard from '../components/ProductCard';
 import SpecialProduct from '../components/SpecialProduct';
 
 const Home = () => {
+  const specialProducts = [
+    {
+      id: 1,
+      image: "/images/femfresh.jpg",
+      brand: "Femfresh",
+      title: "FEMFRESH INTIMATE WASH 250ML",
+      rating: 4,
+      price: 900,
+      prevPrice: 1500,
+      discountDays: 5,
+      productCount: 5,
+      productProgress: 25,
+    },
+    {
+      id: 2,
+      image: "/images/ceraVe.jpg",
+      brand: "CeraVe",
+      title: "CeraVe PM Facial Moisturizing Lotion with hyaluronic acid and niacinamide ",
+      rating: 3,
+      price: 1200,
+      prevPrice: 2500,
+      discountDays: 0,
+      productCount: 10,
+      productProgress: 50,
+    },
+    {
+      id: 3,
+      image: "/images/cantu.jpg",
+      brand: "Cantu",
+      title: "Cantu Natural Hair Moisturizing Twist & Lock Gel (370gm)",
+      rating: 5,
+      price: 900,
+      prevPrice: 1200,
+      discountDays: 3,
+      productCount: 2,
+      productProgress: 10,
+    },
+    {
+      id: 4,
+      image: "/images/loreal_shampoo.jpeg",
+      brand: "L'Oreal",
+      title: "L'Oreal Paris Elvive Hyaluron Plump, Hydrating Shampoo, for Dry Hair, 13.5 fl oz",
+      rating: 2,
+      price: 800,
+      prevPrice: 1000,
+      discountDays: 0,
+      productCount: 20,
+      productProgress: 80,
+    }
+  ];
   return(
     <>
     <section className="home-wrapper-1 py-5">
@@ -16,7 +66,7 @@ const Home = () => {
               <img src="/images/main-banner.png "
               className="img-fluid rounded"
               alt="main banner"/>
-              <div className="main-banner-content position-absolute">
+              <div className="main-banner-content position-absolute" >
                 {/*<h4>Add some here</h4>*/}
                 {/*<h5>Can add text here</h5>*/}
                 {/*<p>A paragraph</p>*/}
@@ -40,6 +90,9 @@ const Home = () => {
               </div>
             </div>
             <div className="small-banner position-relative">
+              <div className="new-arrivals-top position-absolute py-1">
+                <img src="/images/new_arrivals.png" alt="New Arrivals" style={{ width: '150%', maxWidth: '500px', height: 'auto'}}/>
+              </div>
               <img src="/images/neutrogena2.jpg "
               className="img-fluid rounded"
               alt="main banner"/>
@@ -205,50 +258,59 @@ const Home = () => {
         <div className="row">
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img src="images/tab.jpg"className="img-fluid" alt="famous"/>
+              <img src="images/fruit_collagen.jpg" className="img-fluid" alt="Shampoos" />
               <div className="famous-content position-absolute">
-              <h5 className="text-dark">BIG SCREEN</h5>
-              <h6>Smart Watch Series 7</h6>
-              <p>From $399 or 16.62/mo. for 24mo</p>
+              {/*<h5 className="text-dark">MASKS</h5>*/}
+              {/*<h6>COllagen</h6>*/}
+              {/*<p>From $399 or 16.62/mo. for 24mo</p>*/}
               </div>
             </div>
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img src="images/tab2.jpg"
+              <div className="new-arrivals-top position-absolute py-1">
+                <img src="/images/new_arrivals.png" alt="New Arrivals" style={{ width: '150%',maxWidth: '500px', height: 'auto'}}/>
+              </div>
+              <img src="/images/rashel_mask.jpg"
               className="img-fluid"
               alt="famous"/>
-              <div className="famous-content position-absolute">
-              <h5 className="text-dark">Studio Display</h5>
-              <h6 className="text-dark">600 unit of Brightness</h6>
-              <p className="text-dark">27-inch 5k Retina Display</p>
-              </div>
+              {/*<div className="famous-content position-absolute">*/}
+              {/*<h5 className="text-dark">Studio Display</h5>*/}
+              {/*<h6 className="text-dark">600 unit of Brightness</h6>*/}
+              {/*<p className="text-dark">27-inch 5k Retina Display</p>*/}
+              {/*</div>*/}
             </div>
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img src="images/tab3.jpg"
-              className="img-fluid"
-              alt="famous"/>
-              <div className="famous-content position-absolute">
-              <h5 className="text-dark">SMARTPHONE</h5>
-              <h6 className="text-dark">Smart Phone Pro</h6>
-              <p className="text-dark">
-                Now in Green From $999.00 or $41.62/mo for 24mo Footnote*</p>
+              <div className="new-arrivals-top position-absolute py-1">
+                <img src="/images/new_arrivals.png" alt="New Arrivals" style={{ width: '150%',maxWidth: '500px', height: 'auto'}}/>
               </div>
+              <img src="/images/rorec_blueberry.jpg"
+              className="img-fluid"
+              alt="Rorec Blueberry mask"/>
+              {/*<div className="famous-content position-absolute">*/}
+              {/*<h5 className="text-dark">SMARTPHONE</h5>*/}
+              {/*<h6 className="text-dark">Smart Phone Pro</h6>*/}
+              {/*<p className="text-dark">*/}
+              {/*  Now in Green From Ksh 300 for a pack</p>*/}
+              {/*</div>*/}
             </div>
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
-              <img src="images/tab3.jpg"
-              className="img-fluid"
-              alt="famous"/>
-              <div className="famous-content position-absolute">
-              <h5 className="text-dark">HOME SPEAKER</h5>
-              <h6 className="text-dark">Room-Filling Sound</h6>
-              <p className="text-dark">
-                From $699 or 116.58/mo for 12mo.*</p>
+              <div className="new-arrivals-top position-absolute py-1">
+                <img src="/images/new_arrivals.png" alt="New Arrivals" style={{ width: '150%',maxWidth: '500px', height: 'auto'}}/>
               </div>
+              <img src="/images/garnier_charcoal.jpg"
+              className="img-fluid"
+              alt="Garnier Charcoal Serum"/>
+              {/*<div className="famous-content position-absolute">*/}
+              {/*<h5 className="text-dark">HOME SPEAKER</h5>*/}
+              {/*<h6 className="text-dark">Room-Filling Sound</h6>*/}
+              {/*<p className="text-dark">*/}
+              {/*  From $699 or 116.58/mo for 12mo.*</p>*/}
+              {/*</div>*/}
             </div>
           </div>
         </div>
@@ -262,10 +324,23 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <SpecialProduct/>
-          <SpecialProduct/>
-          <SpecialProduct/>
-          <SpecialProduct/>
+          <div className="row">
+            {specialProducts.map(product => (
+              <SpecialProduct
+                key={product.id}
+                image={product.image}
+                brand={product.brand}
+                title={product.title}
+                rating={product.rating}
+                price={product.price}
+                prevPrice={product.prevPrice}
+                discountPrice={product.discountPrice}
+                discountDays={product.discountDays}
+                productCount={product.productCount}
+                productProgress={product.productProgress}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -291,28 +366,28 @@ const Home = () => {
             <div className="marquee-inner-wrapper card-wrapper">
             <Marquee className='d-flex'>
               <div className="mx-4 w-25">
-                <img src="/images/brand-01.png" alt="brand"/>
+                <img src="/images/cantu_logo.png" alt="Cantu logo"/>
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-02.png" alt="brand"/>
+                <img src="/images/revlon_logo1.png" alt="Revlon logo"/>
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-03.png" alt="brand"/>
+                <img src="/images/unilever_logo.png" alt="Unilever logo" style={{ width: '40%',maxWidth: '300px', height: 'auto' }} />
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-04.png" alt="brand"/>
+                <img src="/images/garnier_logo.png" alt="Garnier logo" style={{ width: '100%',maxWidth: '300px', height: 'auto' }} />
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-05.png" alt="brand"/>
+                <img src="/images/neutrogena_logo.png" alt="Neutrogena Logo"/>
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-06.png" alt="brand"/>
+                <img src="/images/dove_logo.png" alt="Dove logo" style={{ width: '80%',maxWidth: '300px', height: 'auto' }} />
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-07.png" alt="brand"/>
+                <img src="/images/loreal_logo.png" alt="L'Oreal logo" style={{ width: '100%',maxWidth: '300px', height: '100%' }} />
               </div>
               <div className="mx-4 w-25">
-                <img src="/images/brand-08.png" alt="brand"/>
+                <img src="/images/nivea_logo.png" alt="Nivea logo" style={{ width: '80%',maxWidth: '300px', height: 'auto' }} />
               </div>
             </Marquee>
             </div>
@@ -326,7 +401,7 @@ const Home = () => {
           <div className="col-12">
             <h3 className="section-heading">Our Latest Blogs</h3>
           </div>
- 
+
         </div>
         <div className="row">
           <div className="col-3">

@@ -180,7 +180,11 @@ footer.input-group-text{
   top: -10px;
   left: -50px;
   z-index: 1;
-  /*opacity: 0.4;*/
+}
+.new-arrivals-top {
+  position: absolute;
+  top: -45px;
+  left: 90px;
 }
 
 .main-banner-content{
