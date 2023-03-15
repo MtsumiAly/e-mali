@@ -180,7 +180,11 @@ footer.input-group-text{
   top: -10px;
   left: -50px;
   z-index: 1;
-  /*opacity: 0.4;*/
+}
+.new-arrivals-top {
+  position: absolute;
+  top: -45px;
+  left: 90px;
 }
 
 .main-banner-content{
@@ -599,3 +603,39 @@ sub-title{
   color: var(--color-777777);
 }
 /**Contact Page Ends Here**/
+
+/**Comapre Product Page Start here**/
+.compare-product-card {
+  padding: 20px 15px;
+  border-radius: 10px;
+  background-color: white;
+}
+/*---styling the cross image---*/
+.compare-product-card .cross {
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  padding: 3px;
+  cursor: pointer;
+}
+/*--styling h5 in class title of product card*/
+.compare-product-card h5.title{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-1c1c1b);
+}
+/*--styling h6 in class price of product card*/
+.compare-product-card h6.price{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.compare-product-card .product-detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  border-top: 1px solid var(--color-f5f5f7);
+}
+/**Compare product Ends Here**/
