@@ -564,3 +564,38 @@ sub-title{
   top: 17%;
 }
 /*Our Store Ends Here*/
+
+/**Contact Page Start Here**/
+/*--contact-inner-wrapper class container--*/
+.contact-inner-wrapper{
+  padding: 30px 20px;
+  border-radius: 15px;
+  background-color:white;
+  gap: 15px;
+}
+.contact-inner-wrapper>div{
+  width: 48%;
+}
+.contact-tittle {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35;
+  text-align: left;
+}
+/*--form control--*/
+.contact-inner-wrapper form .form-control{
+  background-color: var(--color-f5f5f7);
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 10px;
+}
+/*--class unorderd list<ul>--*/
+.contact-inner-wrapper ul{
+  list-style: none;
+}
+.contact-inner-wrapper address,
+.contact-inner-wrapper a,
+.contact-inner-wrapper p{
+  color: var(--color-777777);
+}
+/**Contact Page Ends Here**/
