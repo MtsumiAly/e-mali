@@ -568,3 +568,74 @@ sub-title{
   top: 17%;
 }
 /*Our Store Ends Here*/
+
+/**Contact Page Start Here**/
+/*--contact-inner-wrapper class container--*/
+.contact-inner-wrapper{
+  padding: 30px 20px;
+  border-radius: 15px;
+  background-color:white;
+  gap: 15px;
+}
+.contact-inner-wrapper>div{
+  width: 48%;
+}
+.contact-tittle {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35;
+  text-align: left;
+}
+/*--form control--*/
+.contact-inner-wrapper form .form-control{
+  background-color: var(--color-f5f5f7);
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 10px;
+}
+/*--class unorderd list<ul>--*/
+.contact-inner-wrapper ul{
+  list-style: none;
+}
+.contact-inner-wrapper address,
+.contact-inner-wrapper a,
+.contact-inner-wrapper p{
+  color: var(--color-777777);
+}
+/**Contact Page Ends Here**/
+
+/**Comapre Product Page Start here**/
+.compare-product-card {
+  padding: 20px 15px;
+  border-radius: 10px;
+  background-color: white;
+}
+/*---styling the cross image---*/
+.compare-product-card .cross {
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  padding: 3px;
+  cursor: pointer;
+}
+/*--styling h5 in class title of product card*/
+.compare-product-card h5.title{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-1c1c1b);
+}
+/*--styling h6 in class price of product card*/
+.compare-product-card h6.price{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.compare-product-card .product-detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  border-top: 1px solid var(--color-f5f5f7);
+}
+/**Compare product Ends Here**/
