@@ -4,6 +4,7 @@ import BreadCrumb from '../components/BreadCrumb';
 import Meta from '../components/Meta';
 import ProductCard from "../components/ProductCard";
 import Color from '../components/Color';
+import Container from '../components/Container';
 
 function OurStore() {
     const [grid,setGrid] = useState(4);
@@ -11,8 +12,7 @@ function OurStore() {
     <>
     <Meta title={"Our Store"}/>
     <BreadCrumb title ="Our Store"/>
-    <div className="store-wrapper home-wrapper-2 py-5">
-        <div className="container-xxl">
+    <Container class1="store-wrapper home-wrapper-2 py-5">
             <div className="row">
                 <div className="col-3">
                     <div className="filter-card">
@@ -170,7 +170,7 @@ function OurStore() {
                             <select 
                                 className="form-control form-select" 
                                 id="">
-                                    <option value="best-selling" selected="selected">
+                                    <option value="best-selling">
                                         Best Seling
                                     </option>
                                     <option value="title-ascending">
@@ -231,8 +231,7 @@ function OurStore() {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+    </Container>
     </>
   );
 };

@@ -14,7 +14,7 @@ const BlogCard = () => {
             Do you need to secure your payment method ?<br/>
             Get your e-mali Account at a free coast.
           </p>
-          <Link to="/" className="button">
+          <Link to="/blog/:id" className="button">
             Read More
           </Link>
         </div>

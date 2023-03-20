@@ -3,17 +3,18 @@ import{AiOutlineHome,AiOutlineMail} from "react-icons/ai";
 import{BiPhoneCall} from "react-icons/bi";
 import{BsInfoCircle} from "react-icons/bs";
 import BreadCrumb from '../components/BreadCrumb';
+import Container from '../components/Container';
 import Meta from '../components/Meta';
 const Contact = () => {
   return (
     <>
     <Meta title={"Contact Us"}/>
     <BreadCrumb title ="Contacts"/>
-    <div className="contact-wraper home-wrapper-2 py-5">
-      <div className="container-xxl">
+    <Container class1="contact-wraper home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
-          <iframe 
+          <iframe
+            title="google_map" 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50719.33621822984!2d39.68441741928084!3d-4.032626486131963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012f227d1296f%3A0xd7c3bf3a7679513f!2sRatna%20Square%20Shopping%20Centre!5e0!3m2!1sen!2ske!4v1678875339581!5m2!1sen!2ske" 
             width="600" 
             height="450" 
@@ -96,8 +97,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </Container>
     </>
   );
 };

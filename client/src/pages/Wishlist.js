@@ -1,5 +1,6 @@
 import React from 'react';
 import BreadCrumb from '../components/BreadCrumb';
+import Container from '../components/Container';
 import Meta from '../components/Meta';
 
 const Wishlist = () => {
@@ -7,8 +8,7 @@ const Wishlist = () => {
     <>
     <Meta title={"Wishlist"}/>
     <BreadCrumb title ="Wishlist"/>
-    <div className="wishlist-wrapper home-wrapper-2 py-5">
-        <div className="container-xxl">
+    <Container class1="wishlist-wrapper home-wrapper-2 py-5">
             <div className="row">
                 <div className="col-3">
                     <div className="wishlist-card  position-relative">
@@ -57,13 +57,13 @@ const Wishlist = () => {
                 <div className="col-3">
                     <div className="wishlist-card  position-relative">
                         <img 
-                            src="images/cross.svg" 
+                            src="images/cross.svg"
                             alt="cross" 
                             className="cross position-absolute img-fluid"
                         />
                         <div className="wishlist-card-image">
                             <img
-                                src="images/watch.jpg" 
+                                src="images/watch.jpg"
                                 className="img-fluid w-100" 
                                 alt="watch"
                              />
@@ -77,8 +77,7 @@ const Wishlist = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+    </Container>
     </>
   );
 };
