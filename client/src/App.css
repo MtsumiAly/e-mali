@@ -406,6 +406,11 @@ footer.input-group-text{
 /*product details h5*/
 .product-card .product-details h5{
   font-size: 15px;
+  color: var(--color-777777);
+}
+/*product details h4*/
+.product-card .product-details h4{
+  font-size: 15px;
   color: var(--color-1c1c1b);
 }
 /*product details price p.price*/
