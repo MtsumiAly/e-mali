@@ -1,8 +1,9 @@
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");
 const {generateToken} = require("../config/jwtToken");
-const validateMongoDbId = require("../utils/validatMongodbId");
+const validateMongoDbId = require("../utils/validateMongodbId");
 const {generateRefreshToken} = require("../config/refreshToken");
+const jwt = require("jsonwebtoken");
 
 const createUser = asyncHandler(async (req, res) => {
     const email = req.body.email;
@@ -74,6 +75,44 @@ const deleteUser = asyncHandler(async (req, res) => {
     } catch (error) {
         throw new Error(error);
     }
+});
+
+//Handle refresh token
+const handleRefreshToken = asyncHandler(async(req, res) => {
+    const cookie = req.cookies;
+    if (!cookie?.refreshToken) throw new Error("No refresh token in Cookies");
+    const refreshToken = cookie.refreshToken;
+    const user = await User.findOne({ refreshToken });
+    if (!user) throw new Error("No Refresh token present in db or No user matched with the provided token ")
+    jwt.verify(refreshToken, process.env.JWT_SECRET, (err, decoded) => {
+        if (err || user.id !== decoded.id) {
+            throw new Error("Something wrong with refresh Token");
+        }else {
+            const accessToken = generateToken(user?._id);
+            res.json({ accessToken });
+        }
+    });
+});
+
+// Logout
+const logOut = asyncHandler(async(req, res) => {
+    const cookie = req.cookies;
+    if (!cookie?.refreshToken) throw new Error("No refresh token in Cookies");
+    const refreshToken = cookie.refreshToken;
+    const user = await User.findOne({ refreshToken });
+    if (!user) {
+        throw new Error("No User logged in");
+    }else{
+        await User.findOneAndUpdate(refreshToken, {
+            refreshToken: "",
+        });
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            secure: true,
+        });
+        return res.sendStatus(204); //forbidden
+    }
+
 });
 
 const updateUser = asyncHandler(async (req, res) => {
@@ -148,5 +187,7 @@ module.exports= {
     deleteUser,
     updateUser,
     blockUser,
-    unblockUser
+    unblockUser,
+    handleRefreshToken,
+    logOut
 };
