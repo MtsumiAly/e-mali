@@ -18,7 +18,11 @@ var blogSchema = new mongoose.Schema({
         type:Number,
         default: 0,
     },
-    isLked:{
+    isLiked:{
+        type: Boolean,
+        default: false,
+    },
+    isDisLiked:{
         type: Boolean,
         default: false,
     },
