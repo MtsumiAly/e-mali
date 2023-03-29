@@ -1,11 +1,12 @@
 const User = require("../models/userModel");
 const Product = require("../models/productModel");
 const Cart = require("../models/cartModel");
+const Coupon = require("../models/couponModel");
 const asyncHandler = require("express-async-handler");
 const {generateToken} = require("../config/jwtToken");
 const validateMongoDbId = require("../utils/validateMongodbId");
 const {generateRefreshToken} = require("../config/refreshToken");
-const sendEmail = require("../controller/emailCtrl")
+const sendEmail = require("../controller/emailCtrl");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
@@ -353,13 +354,52 @@ const emptyCart = asyncHandler(async (req, res) => {
     try {
         const user = await User.findOne(_id);
         const cart = await Cart.findOneAndRemove({ orderedBy: user._id });
+        if (!cart){
+           res.json({message: "Cart is empty!"}) 
+        }
         res.status(200).json({
             message: "Successfully emptied cart",
             cart
-        }, cart);
+        });
     } catch (error) {
         throw new Error(error);
     }
+});
+
+const applyCoupon = asyncHandler(async (req, res) => {
+    const { coupon } = req.body;
+    const { _id } = req.user;
+
+    // validate the user ID
+    validateMongoDbId(_id);
+
+    // check if the coupon code exists in the database
+    const validCoupon = await Coupon.findOne({ name: coupon });
+    if (validCoupon === null) {
+        throw new Error("Invalid coupon");
+    }
+
+    // find the user's cart and get the list of products and total cost
+    const user = await User.findOne({ _id });
+    let { cartTotal } = await Cart.findOne({
+        orderedBy: user._id,
+    }).populate("products.product");
+
+    // calculate the discount and update the total cost
+    let totalAfterDiscount = (
+        cartTotal -
+        (cartTotal * validCoupon.discount) / 100
+    ).toFixed(2);
+
+    // update the cart with the new total cost
+    await Cart.findOneAndUpdate(
+        { orderedBy: user._id },
+        { totalAfterDiscount },
+        { new: true }
+    );
+
+    // return the updated total cost to the client
+    res.json(totalAfterDiscount)
 });
 
 
@@ -383,4 +423,5 @@ module.exports= {
     userCart,
     getUserCart,
     emptyCart,
+    applyCoupon
 };
