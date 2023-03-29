@@ -20,13 +20,13 @@ const CompareProduct = () => {
                         className="cross position-absolute img-fluid"
                       />
                       <div className="product-card-image">
-                        <img src="images/watch.jpg" alt="watch"/>
+                        <img src="images/nivea1.jpg" alt="nivea"/>
                       </div>
                       <div className="compare-product-details">
                         <h5 className="title">
-                          Honor T1 7.0 1GB 8GB ROM 7 Inch with WIFI Tablet 
+                        Nivea Perfect & Radiant Luminous Anti Dark.
                         </h5>
-                        <h6 className="price mb-3 mt-3">$100.00</h6>
+                        <h6 className="price mb-3 mt-3">ksh 1899.00</h6>
                       </div>
                       <div className="product-detail">
                         <h5>Brand:</h5>
@@ -34,7 +34,7 @@ const CompareProduct = () => {
                       </div>
                       <div className="product-detail">
                         <h5>Type:</h5>
-                        <p>Watch</p>
+                        <p>Cream & Serum</p>
                       </div>
                       <div className="product-detail">
                         <h5>Availability:</h5>
@@ -60,21 +60,21 @@ const CompareProduct = () => {
                         alt="cross" 
                         className="cross position-absolute img-fluid"/>
                       <div className="product-card-image">
-                        <img src="images/watch.jpg" alt="watch"/>
+                        <img src="images/Garnier2.jpg" alt="Garnier"/>
                       </div>
                       <div className="compare-product-details">
                         <h5 className="title">
-                          Honor T1 7.0 1GB 8GB ROM 7 Inch with WIFI Tablet 
+                        Garnier Anti-Blemish Charcoal Serum
                         </h5>
-                        <h6 className="price mb-3 mt-3">$100.00</h6>
+                        <h6 className="price mb-3 mt-3">ksh 1599.00</h6>
                       </div>
                       <div className="product-detail">
                         <h5>Brand:</h5>
-                        <p>Nivea</p>
+                        <p>Garnier</p>
                       </div>
                       <div className="product-detail">
                         <h5>Type:</h5>
-                        <p>Watch</p>
+                        <p>Charcoal & Serum</p>
                       </div>
                       <div className="product-detail">
                         <h5>Availability:</h5>

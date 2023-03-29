@@ -16,7 +16,7 @@ const SingleProduct = () => {
     width: 400, 
     height: 500, 
     zoomWidth: 500, 
-    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3GnpmMz7ikLmtzV1XRN1j4aetbKEYh1IKTw&usqp=CAU"
       };
   const [OrderProduct,setorderedProduct] = useState(0);
   const copyToClipboard = (text) => {
@@ -43,25 +43,25 @@ const SingleProduct = () => {
             <div className="other-product-images d-flex flex-wrap gap-15">
               <div>
                 <img 
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+                  src="https://www.cantubeauty.com/wp-content/uploads/sites/3/2022/04/Cantu_collection_naturalhair-500x500.jpg"
                   className="img-fluid" 
                   alt=""/>
               </div>
               <div>
                 <img 
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+                  src="https://www.cantubeauty.com/wp-content/uploads/sites/3/2023/02/CantuMens_FamilyShot_From_To-500x500.jpg"
                   className="img-fluid" 
                   alt=""/>
               </div>
               <div>
                 <img 
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+                  src="https://cdn.sanity.io/images/4nopozul/tresemme-staging-us/24b2617a55ec14de5de52028c24256e2fc745b0e-2000x2000.jpg?w=768&h=768&fit=crop&auto=format&q=80"
                   className="img-fluid" 
                   alt=""/>
               </div>
               <div>
                 <img 
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
+                  src="https://cdn.sanity.io/images/4nopozul/tresemme-staging-us/6ca256f6073f88c747fad18eb1b2424fe0aee8e0-1200x1200.jpg?w=768&h=660&fit=fill&auto=format&q=80&bg=fff"
                   className="img-fluid" 
                   alt=""/>
               </div>
@@ -71,11 +71,11 @@ const SingleProduct = () => {
             <div className="main-product-details">
               <div className="border-bottom">
                 <h3 className="title">
-                  Emali Phones Bulk to 10 pack Mult Colored for Student
+                  Emali Shampoo category ,2 in 1 ,for Natural Hair.
                 </h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">$ 100</p>
+                <p className="price">Ksh 1200</p>
                 <div className="d-flex align-items-center gap-10">
                 <ReactStars
                     count={5}
@@ -91,15 +91,15 @@ const SingleProduct = () => {
               <div className="py-3">
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Type:</h3>
-                  <p className="product-data">Emali</p>
+                  <p className="product-data">Tresemme Shampoo</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Brand:</h3>
-                  <p className="product-data">Nivea</p>
+                  <p className="product-data">Tresemme</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Category:</h3>
-                  <p className="product-data">Watch</p>
+                  <p className="product-data">Shampoo</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Tags:</h3>

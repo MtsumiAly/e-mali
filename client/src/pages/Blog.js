@@ -16,10 +16,10 @@ const Blog = () => {
                         <h3 className="filter-title">Find Categories</h3>
                         <div>
                             <ul className="ps-0">
-                                <li>Watch</li>
-                                <li>Tv</li>
-                                <li>Camera</li>
-                                <li>Laptope</li>
+                                <li>Shower Gel & Body wash</li>
+                                <li>Shampoo</li>
+                                <li>Perfumes & Deos</li>
+                                <li>Body Oils & Lotions</li>
                             </ul>
                         </div>
                     </div>

@@ -19,10 +19,10 @@ function OurStore() {
                         <h3 className="filter-title">Shop By Categories</h3>
                         <div>
                             <ul className="ps-0">
-                                <li>Watch</li>
-                                <li>Tv</li>
-                                <li>Camera</li>
-                                <li>Laptope</li>
+                                <li>Facial Product</li>
+                                <li>Hair product</li>
+                                <li>Kid's Store</li>
+                                <li>Body Product</li>
                             </ul>
                         </div>
                     </div>
@@ -106,16 +106,16 @@ function OurStore() {
                         <div>
                             <div className="product-tags d-flex flex-wrap align-items-center gap-10">
                                 <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                                    Headphones
+                                    Make Up
                                 </span>
                                 <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                                    Laptop
+                                    Hair product
                                 </span>
                                 <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                                    Mobile
+                                    Oils & Serum
                                 </span>
                                 <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                                    Wire
+                                    Fragrances
                                 </span>
                             </div>
                         </div>
@@ -125,11 +125,11 @@ function OurStore() {
                         <div>
                             <div className="random-products mb-3 d-flex">
                                 <div className="w-50">
-                                    <img src="images/watch.jpg" className="img-fluid" alt="watch"/>
+                                    <img src="images/emali_cerave.JPG" className="img-fluid" alt="watch"/>
                                 </div>
                                 <div className="w-50">
                                     <h5>
-                                        Kids Headphones bulk 10 pack multi colored for students
+                                    Cerave AM Facial Moisturizing Lotion 52ml
                                     </h5>
                                     <ReactStars
                                         count={5}
@@ -138,16 +138,16 @@ function OurStore() {
                                         edit={false}
                                         activeColor="#ffd700"
                                     />
-                                    <b>$ 300</b>
+                                    <b>ksh. 2199</b>
                                 </div>
                             </div>
                             <div className="random-products d-flex">
                                 <div className="w-50">
-                                    <img src="images/headphone.jpg" className="img-fluid" alt="watch"/>
+                                    <img src="images/emali_bioil.JPG" className="img-fluid" alt="bio-oil"/>
                                 </div>
                                 <div className="w-50">
                                     <h5>
-                                        Kids Headphones bulk 10 pack multi colored for students
+                                    Bio oil is a specialist skincare oil that helps improve the appearance of scars.
                                     </h5>
                                     <ReactStars
                                         count={5}
@@ -156,7 +156,7 @@ function OurStore() {
                                         edit={false}
                                         activeColor="#ffd700"
                                     />
-                                    <b>$ 300</b>
+                                    <b>ksh. 569</b>
                                 </div>
                             </div>
                         </div>

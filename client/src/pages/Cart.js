@@ -23,7 +23,7 @@ const Cart = () => {
                         <div className="cart-col-1 gap-15 d-flex align-items-center">
                             <div className="w-25">
                                 <img 
-                                    src="images/watch.jpg"
+                                    src="https://www.cantubeauty.com/wp-content/uploads/sites/3/2023/02/CantuMens_FamilyShot_From_To-500x500.jpg"
                                     className="img-fluid"
                                     alt="product_image"
                                 />
@@ -35,7 +35,7 @@ const Cart = () => {
                             </div>
                         </div>
                         <div className="cart-col-2">
-                            <h5 className="price">$100.00</h5>
+                            <h5 className="price">ksh.899</h5>
                         </div>
                         <div className="cart-col-3 d-flex align-items-center gap-15">
                             <div>
@@ -53,7 +53,7 @@ const Cart = () => {
                             </div>
                         </div>
                         <div className="cart-col-4">
-                        <h5 className="price">$100.00</h5>
+                        <h5 className="price">ksh.200.00</h5>
                         </div>
                     </div>
                 </div>

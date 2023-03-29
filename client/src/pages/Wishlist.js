@@ -19,16 +19,16 @@ const Wishlist = () => {
                         />
                         <div className="wishlist-card-image">
                             <img
-                                src="images/watch.jpg" 
+                                src="images/emali_nivea.JPG" 
                                 className="img-fluid w-100" 
                                 alt="watch"
                              />
                         </div>
                         <div className="py-3 px-2">
                             <h5 className="title">
-                                Honor T1 7.0 1GB 8GB ROM 7 Inch with WIFI Tablet
+                            2 Pack Nivea Lip Balm Black Berry Shine
                             </h5>
-                            <h6 className="price">$100.00</h6>
+                            <h6 className="price">ksh.799.00</h6>
                         </div>
                     </div>
                 </div>
@@ -41,16 +41,16 @@ const Wishlist = () => {
                         />
                         <div className="wishlist-card-image">
                             <img
-                                src="images/watch.jpg" 
+                                src="images/emali_acnes.JPG" 
                                 className="img-fluid w-100" 
                                 alt="watch"
                              />
                         </div>
                         <div className="py-3 px-2">
                             <h5 className="title">
-                                Honor T1 7.0 1GB 8GB ROM 7 Inch with WIFI Tablet
+                             2 in 1 Acnes Scar Care 12g
                             </h5>
-                            <h6 className="price">$100.00</h6>
+                            <h6 className="price">ksh. 489.00</h6>
                         </div>
                     </div>
                 </div>
@@ -63,16 +63,16 @@ const Wishlist = () => {
                         />
                         <div className="wishlist-card-image">
                             <img
-                                src="images/watch.jpg"
+                                src="images/emali_aveeno.JPG"
                                 className="img-fluid w-100" 
-                                alt="watch"
+                                alt="aveeno"
                              />
                         </div>
                         <div className="py-3 px-2">
                             <h5 className="title">
-                                Honor T1 7.0 1GB 8GB ROM 7 Inch with WIFI Tablet
+                            Aveeno Baby Wash & Shampoo 532ml
                             </h5>
-                            <h6 className="price">$100.00</h6>
+                            <h6 className="price">ksh.2300.00</h6>
                         </div>
                     </div>
                 </div>

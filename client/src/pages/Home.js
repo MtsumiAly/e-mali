@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
 import ProductCard from '../components/ProductCard';
+import PopularCard from '../components/PopularCard';
 import SpecialProduct from '../components/SpecialProduct';
 import Container from '../components/Container';
 import {services} from "../utils/Data";
@@ -319,10 +320,10 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
+          <PopularCard/>
+          <PopularCard/>
+          <PopularCard/>
+          <PopularCard/>
         </div>
     </Container>
     <Container class1="marquee-wrapper home-wrapper-2 py-5">

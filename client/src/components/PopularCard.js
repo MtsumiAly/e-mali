@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactStars from "react-rating-stars-component";
 import { Link,useLocation } from 'react-router-dom';
-const ProductCard = (props) => {
+
+const PopularCard = (props) => {
     const {grid} = props;
     let location = useLocation();
-    return (
+  return (
     <>
     <div className={` ${location.pathname == "/product" ? `gr-${grid}`:"col-3"}`}>
         <Link to="/product:id"className="product-card position-relative">
             <div className="wishlist-icon position-absolute">
                 <button className="border-0 bg-transparent">
-                <img src="/images/wish.svg"  alt="wishlist"/>
+                <img src="/images/wish.svg" alt="wishlist"/>
                 </button>
             </div>
             <div className="product-image">
-                <img src="/images/arganoil.JPG"
+                <img src="/images/dovebaby_body.JPG"
                     className="img-fluid"
                     alt="product image"
                 />
@@ -24,9 +25,9 @@ const ProductCard = (props) => {
                 />
             </div>
             <div className="product-details">
-                <h4 className="brand">Argan Oil</h4>
+                <h4 className="brand">Dove Body Wash</h4>
                 <h5 className="product-title">
-                Creme of Nature Sulfate-Free Moisture Shampoo12oz
+                Dove Baby Head to Toe Wash- Sensitive 200ml
                 </h5>
                 <ReactStars
                     count={5}
@@ -68,7 +69,7 @@ const ProductCard = (props) => {
                 </Link>
             </div>
             <div className="product-image">
-                <img src="/images/creameofnature.JPG"
+                <img src="/images/nivea_shower.JPG"
                     className="img-fluid"
                     alt="product image"
                 />
@@ -78,9 +79,9 @@ const ProductCard = (props) => {
                 />
             </div>
             <div className="product-details">
-                <h4 className="brand">Creme of Nature</h4>
+                <h4 className="brand">Nivea Shower Gel</h4>
                 <h5 className="product-title">
-                Creme of Nature Detang.&Conditioning Shampoo 12oz
+                Nivea Men Deep Shower Gel 500ml
                 </h5>
                 <ReactStars
                     count={5}
@@ -114,6 +115,6 @@ const ProductCard = (props) => {
     </div>
     </>
   );
-}
+};
 
-export default ProductCard;
+export default PopularCard;

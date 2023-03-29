@@ -13,7 +13,7 @@ const Signup = () => {
             <div className="row">
                 <div className="col-12">
                     <div className="auth-card">
-                        <h3 className="text-center mb-3">SignUp</h3>
+                        <h3 className="text-center mb-3">Signup</h3>
                         <form action="" className="d-flex flex-column g-15">
                             <CustomInput type="text"  name="name" placeholder="First Name"/>
                             <CustomInput type="text" name="name" placeholder="Last Name"/>
