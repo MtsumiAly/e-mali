@@ -1,46 +1,67 @@
-# Getting Started with Create React App and Redux
+***
+# MERN Stack - e-Mali App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+***
+# About
 
-## Available Scripts
 
-In the project directory, you can run:
+This is a Full stack Application. Frontend is developed using `React JS` and Backend consists of APIs built using `Node JS`.
 
-### `npm start`
+e-Mali is an e-commerce web application built with React JS and Node JS APIs. It allows users to browse, search, and purchase products from various categories of cosmetic products at the convinience of their home.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+***
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+***
 
-### `npm test`
+# Features
++ User authentication and authorization
++ Product search and filtering
++ Product rating and reviews
++ Cart management and checkout
++ Coupon management and application
++ Order history and status tracking
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***
 
-### `npm run build`
+# + [x] Backend APIs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The e-Mali app uses a Node JS backend with the following APIs:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ /api/products: Get all products or search by query and filter parameters
++ /api/products/:productId: Get a single product by ID
++ /api/products/categories: Get all product categories
++ /api/products/ratings: Submit or update a product rating and review
++ /api/carts: Add, update, or remove products from the user's cart
++ /api/carts/checkout: Create an order and update product quantities and sales
++ /api/coupons: Get a coupon by name or create a new coupon
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# + [x] Technologies Used
++ React JS
++ Node JS
++ Express
++ MongoDB
++ Cloudinary
++ Bootstrap
++ JWT
++ Bcrypt
 
-### `npm run eject`
+# + [x] Contributing
+Contributions to e-Mali are welcome! 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# To contribute:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ Fork the repository
++ Create a new branch: git checkout -b new-feature
++ Make your changes and commit them: git commit -am 'Add new feature'
++ Push to the branch: git push origin new-feature
++ Submit a pull request
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+# Tags
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`NodeJS` `ReactJS` `rest framework` `REST API` `permissions` `authentication` `authorization` `MongoDB` `Mongoose`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+***
