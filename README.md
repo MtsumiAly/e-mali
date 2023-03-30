@@ -23,7 +23,7 @@ e-Mali is an e-commerce web application built with React JS and Node JS APIs. It
 
 ***
 
-# + [x] Backend APIs
+# + [X] Backend APIs
 
 The e-Mali app uses a Node JS backend with the following APIs:
 
@@ -35,7 +35,7 @@ The e-Mali app uses a Node JS backend with the following APIs:
 + /api/carts/checkout: Create an order and update product quantities and sales
 + /api/coupons: Get a coupon by name or create a new coupon
 
-# + [x] Technologies Used
+# + [X] Technologies Used
 + React JS
 + Node JS
 + Express
@@ -45,7 +45,7 @@ The e-Mali app uses a Node JS backend with the following APIs:
 + JWT
 + Bcrypt
 
-# + [x] Contributing
+# + [X] Contributing
 Contributions to e-Mali are welcome! 
 
 # To contribute:
@@ -62,6 +62,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 # Tags
 
-`NodeJS` `ReactJS` `rest framework` `REST API` `permissions` `authentication` `authorization` `MongoDB` `Mongoose`
+`NodeJS` `ReactJS` `rest framework` `REST API` `permissions` `authentication` `authorization` `MongoDB` `mongoose`
 
 ***
