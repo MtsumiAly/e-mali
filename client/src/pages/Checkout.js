@@ -126,7 +126,11 @@ const Checkout = () => {
                                 className="badge bg-secondary text-white rounded-circle p-2 position-absolute">
                                     1
                                 </span>
-                                <img className="img-fluid" src="images/watch.jpg" alt=""/>
+                                <img 
+                                    className="img-fluid" 
+                                    src="https://www.cantubeauty.com/wp-content/uploads/sites/3/2022/04/Cantu_collection_naturalhair-500x500.jpg" 
+                                    alt=""
+                                />
                             </div>
                             <div>
                                 <h5 className="total-price title">Emali watch</h5>
