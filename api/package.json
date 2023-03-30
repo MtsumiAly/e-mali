@@ -32,6 +32,6 @@
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "concurrently": "^7.6.0",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.22"
   }
 }
