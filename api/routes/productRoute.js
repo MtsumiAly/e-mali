@@ -17,9 +17,10 @@ router.post("/new", authMiddleware, isAdmin, createProduct);
 router.put("/upload/:id", authMiddleware, isAdmin, uploadPhoto.array("images", 10), productImgResize, uploadImages);
 router.put("/wishlist", authMiddleware, addToWishList);
 router.put("/ratings", authMiddleware, rating);
+router.get("/all", getAllProducts);
 router.get("/:id", getProductById);
 router.put("/:id", authMiddleware, updateProduct);
 router.delete("/:id", authMiddleware, isAdmin, deleteProduct);
-router.get("/", getAllProducts);
+
 
 module.exports = router;

@@ -15,13 +15,17 @@ const brandRouter = require("./routes/brandRoute");
 const couponRouter = require("./routes/couponRoute");
 const orderRouter = require("./routes/orderRoute");
 const morgan = require("morgan");
+const cors = require("cors");
+
 dbConnect();
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-
+app.use(cors({
+    origin: process.env.CORS_ORIGIN
+  }));
 app.use("/api/users", authRouter);
 app.use("/api/products", productRouter);
 app.use("/api/blogs", blogRouter);

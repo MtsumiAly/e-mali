@@ -4,18 +4,21 @@ import BreadCrumb from '../components/BreadCrumb';
 import Container from '../components/Container';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
+import {useDispatch} from "react-redux";
 import * as yup from "yup";
+import { registerUser } from '../features/user/userSlice';
 
 const signUpSchema = yup.object({
   firstname: yup.string().required("First Name is Required"),
   lastname: yup.string().required("Last Name is Required"),
-  email: yup.string().nullable().email("Email Should be Valid"),
+  email: yup.string().email("Email Should be Valid").required("Email Address is Required"),
   mobile: yup.string().required("Mobile Number is Required"),
   password: yup.string().required("Password is Required"),
 });
 
 
 const Signup = () => {
+  const dispatch = useDispatch();  
   const formik = useFormik({
      initialValues: {
        firstname: "",
@@ -25,8 +28,8 @@ const Signup = () => {
        password: "",
      },
      validationSchema: signUpSchema,
-     onSubmit: values => {
-       alert(JSON.stringify(values, null, 2));
+     onSubmit: (values) => {
+       dispatch(registerUser(values));
      },
    });    
   return (
@@ -37,12 +40,12 @@ const Signup = () => {
             <div className="row">
                 <div className="col-12">
                     <div className="auth-card">
-                        <h3 className="text-center mb-3">Signup</h3>
+                        <h3 className="text-center mb-3">Sign Up</h3>
                         <form 
                             action=""
                             onSubmit={formik.handleSubmit}
                             className="d-flex flex-column g-15"
-                            >
+                        >
                             <CustomInput 
                                 type="text"  
                                 name="firstname" 
