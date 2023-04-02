@@ -1,13 +1,143 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/**creating the root variable**/
+:root{
+  --color-212529:#212529;
+  --color-ffd333:#ffd333;
+  --color-47ad24:#47ad24;
+  --clor-e52e2e:#e52e2e;
+  --color-828599:#828599;
+  --color-3d464d:#3d464d;
+  --color-c3d4da:#c3d4da;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/**styling anti layout(widening the dashbord using vh style)**/
+.ant-layout {
+  min-height: 100vh;
+}
+/**styling the anti-layout-side**/
+.ant-layout-sider{
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  min-width: 250px !important;
+  width: 250px !important;
+}
+/**styling tha ant-layout-sider-collapsed**/
+.ant-layout-sider-collapsed {
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+/**sm logo span styling**/
+.sm-logo{
+  display: none;
+}
+.ant-layout-sider-collapsed .sm-logo {
+  display: block;
+}
+
+.ant-layout-sider-collapsed .lg-logo {
+  display: none;
+}
+/**styling the logo**/
+.logo {
+  background-color: white;
+  margin: 0;
+  height: 64px;
+}
+
+
+main {
+  height: 85vh; /**styling the income static height**/
+  overflow-y: scroll;
+  background-color:transparent !important;
+}
+/**main-webkit-scrollbar**/
+main::-webkit-scrollbar{
+  width: 0pc;
+}
+
+/**styling the menu title content**/
+.ant-menu-title-content {
+  font-size: 16px;
+}
+
+/**styling the h5 of the header**/
+.ant-layout-header h5 {
+  line-height: 30px;
+}
+/**styling the p of the header**/
+.ant-layout-header p{
+  line-height: 20px;
+  font-size: 13px;
+}
+/**styling the badge class from span**/
+.ant-layout-header div .badge {
+  top: 16px;
+  right: -6px;
+}
+
+/**styling the h6-class-green --this class will be made dynamic**/
+.green {
+  color:var(--color-47ad24);
+  font-size: 14px;
+  font-family: Roboto !important;
+}
+/**styling the h6-class-red**/
+.red{
+  color:var(--clor-e52e2e);
+  font-size: 14px;
+  font-family: Roboto !important;
+}
+
+/**styling react quill**/
+.quill{
+  background-color: white;
+}
+/**styling form control**/
+.form-control {
+  box-shadow: none;
+  border-color: var(--color-c3d4da);
+}
+
+/***styling the title h3*/
+.title {
+  font: 28px;
+  font-family: Roboto !important;
+  color: var(--color-212529);
+}
+/**styling the sub-title h4**/
+.sub-title {
+  font: 28px;
+  font-family: Roboto !important;
+  color: var(--color-212529);
+}
+
+/**styling the description p**/
+.desc {
+  font: 28px;
+  font-family: Roboto !important;
+  color: var(--color-828599);
 }
