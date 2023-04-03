@@ -9,23 +9,38 @@ export const registerUser = createAsyncThunk("auth/register", async(userData, th
         console.log(error);
         return thunkAPI.rejectWithValue(error);
     }
-})
+});
 
 export const loginUser = createAsyncThunk("auth/login", async(userData, thunkAPI) => {
     try {
         return await authService.login(userData);
     }catch(error){
-        console.log(error);
         return thunkAPI.rejectWithValue(error);
     }
-})
+});
+
+export const getUserProductWishList = createAsyncThunk("user/wishlist", async(thunkAPI) => {
+    try {
+        return await authService.getUserWishList();
+    }catch(error){
+        return thunkAPI.rejectWithValue(error);
+    }
+});
+
+
+const getUserFromLocalStorage = localStorage.getItem("customer")
+    ? JSON.parse(localStorage.getItem("customer"))
+    : null;
+
+
 
 const initialState = {
-    user:"",
+    user: getUserFromLocalStorage,
     isError:false,
     isSuccess:false,
     isLoading:false,
-    message:""
+    message:"",
+    wishlistProducts: []    
 }
 
 export const authSlice = createSlice({
@@ -48,7 +63,7 @@ export const authSlice = createSlice({
             state.isLoading=false;
             state.isError=true;
             state.isSuccess=false;
-            state.message=action.payload?.message || "Unknown Error occured";
+            state.message=action.payload?.message || "Error occured";
             if (state.isError === true) {
                 toast.error(state.message);
             }
@@ -68,11 +83,29 @@ export const authSlice = createSlice({
             state.isLoading=false;
             state.isError=true;
             state.isSuccess=false;
-            state.message=action.payload?.message || "Unknown Error occured";
+            state.message=action.payload?.message || "Error occured";
+            if (state.isError === true) {
+                toast.error(state.message);
+            }
+        }).addCase(getUserProductWishList.pending, (state) => {
+            state.isLoading = true;
+        })
+        .addCase(getUserProductWishList.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isError = false;
+            state.isSuccess = true;
+            state.wishlistProducts = action.payload; 
+            state.message = action.payload?.message || "Error occured";
             if (state.isError === true) {
                 toast.error(state.message);
             }
         })
+        .addCase(getUserProductWishList.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.isSuccess = false;
+            state.message = action.error;
+        });
     }
 });
 
