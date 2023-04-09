@@ -27,13 +27,16 @@ var productSchema = new mongoose.Schema({
     },
     brand:{
         type:String,
-        enum:["Nivea", "Neutrogena", "Dove", "L'Oreal", "Dr. Rashel", "Veet",],
         required:true,
     },
     quantity: {
         type:Number,
         required:true,
     },
+    tags: {
+        type:String,
+    }
+    ,
     sold:{
         type:Number,
         default:0,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, } from 'react';
 import { Link } from 'react-router-dom';
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
@@ -7,8 +7,33 @@ import PopularCard from '../components/PopularCard';
 import SpecialProduct from '../components/SpecialProduct';
 import Container from '../components/Container';
 import {services} from "../utils/Data";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBlogs } from '../features/blogs/blogSlice';
+import moment from "moment"
+import { getAllProducts } from '../features/products/productSlice';
 
 const Home = () => {
+  const blogState = useSelector((state) => state?.blog?.blogs);
+  const productState = useSelector((state) => state?.product.product);
+  console.log(productState);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // Check if both blogState and productState are not empty
+    if (!blogState.length && !productState.length) {
+        getBlogs();
+        getProducts();
+    }
+}, [blogState, productState]);
+
+  const getBlogs = () => {
+    dispatch(getAllBlogs());
+  };
+
+  
+  const getProducts = () => {
+    dispatch(getAllProducts());
+  };
+  
   const specialProducts = [
     {
       id: 1,
@@ -295,21 +320,20 @@ const Home = () => {
         </div>
         <div className="row">
           <div className="row">
-            {specialProducts.map(product => (
-              <SpecialProduct
-                key={product.id}
-                image={product.image}
-                brand={product.brand}
-                title={product.title}
-                rating={product.rating}
-                price={product.price}
-                prevPrice={product.prevPrice}
-                discountPrice={product.discountPrice}
-                discountDays={product.discountDays}
-                productCount={product.productCount}
-                productProgress={product.productProgress}
-              />
-            ))}
+            {productState && productState?.map((item, index) => {
+              if (item.tags === "special") {
+                return <SpecialProduct 
+                          key={index} 
+                          title={item?.title}
+                          brand={item?.brand}
+                          rating={item?.totalRatings.toString()}
+                          price={item?.price}
+                          productCount={item?.quantity}
+                          sold={item?.sold}
+                          image={item?.images[0].url}
+
+                          />};
+            })}
           </div>
         </div>
     </Container>
@@ -368,18 +392,22 @@ const Home = () => {
 
         </div>
         <div className="row">
-          <div className="col-3">
-          <BlogCard/>
-          </div>
-          <div className="col-3">
-          <BlogCard/>
-          </div>
-          <div className="col-3">
-          <BlogCard/>
-          </div>
-          <div className="col-3">
-          <BlogCard/>
-          </div>
+          {
+              blogState && blogState?.map((item, index) => {
+                if (index < 4) {
+                  return (
+                      <div className="col-3" key={index}>
+                          <BlogCard 
+                            id={item?._id}
+                            title={item?.title}
+                            description={item?.description}
+                            image={item?.image[0].url}
+                            date={moment(item?.createdAt).format("MMMM Do YYYY, h:mm:ss a")}/>                                            
+                      </div>                            
+                    )
+                }
+              })
+          }
         </div>
     </Container>
     </>

@@ -1,37 +1,80 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'antd';
+import {useDispatch, useSelector } from "react-redux";
 import {BiEdit} from "react-icons/bi";
 import {AiFillDelete} from "react-icons/ai";
+import { fetchProducts } from '../features/product/productSlice';
+import Link from 'antd/es/typography/Link';
 const columns = [
     {
       title: 'SNo',
       dataIndex: 'key',
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
+      title: 'Product Name',
+      dataIndex: 'productName',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.productName.length - b.productName.length,
     },
     {
-      title: 'Product',
-      dataIndex: 'product',
+      title: 'Brand',
+      dataIndex: 'brand',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.brand.length - b.brand.length,
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
+      title: 'Category',
+      dataIndex: 'category',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.category.length - b.category.length,
+    },
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+    },
+    {
+      title: 'Price',
+      dataIndex: 'price',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.price - b.price,
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
     },
   ];
-  const data1 = [];
-  for (let i = 0; i < 46; i++) {
-    data1.push({
-      key: i,
-      name: `Edward King ${i}`,
-      product: 32,
-      status: `London, Park Lane no. ${i}`,
-    });
-  }
+  
  
 
 const Productlist = () => {
+  const productState = useSelector((state) => state?.product?.products);
+  console.log(productState);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const data1 = [];
+  for (let i = 0; i < productState.length; i++) {
+    data1.push({
+      key: productState[i]._id,
+      productName: productState[i].title,
+      brand: productState[i].brand,
+      category: productState[i].category,
+      quantity: productState[i].quantity,
+      price: productState[i].price,
+      action: (
+        <>
+          <Link className=' fs-3 ' to="/"> 
+            <BiEdit/> 
+          </Link>
+          <Link className='ms-3 fs-3 text-danger' to="/">
+            <AiFillDelete/>
+          </Link>
+        </>),
+    });
+  }
+  
   return (
     <div>
     <h3 className="mb-4"title>Products</h3>

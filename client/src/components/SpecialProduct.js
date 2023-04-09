@@ -2,7 +2,7 @@ import React from 'react';
 import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
 const SpecialProduct = (props) => {
-    const {image, brand, title, rating, price, discountDays, productCount, prevPrice} = props;
+    const {image, brand, title, rating, price, discountDays, productCount, sold} = props;
     return (
     <div className='col-6 mb-3' >
         <div className='special-product-card'>
@@ -16,12 +16,13 @@ const SpecialProduct = (props) => {
                     <ReactStars
                     count={5}
                     size={24}
-                    value={4}
+                    value={rating}
                     edit={false}
                     activeColor="#ffd700"
                     />
                     <p className="price">
-                        <span className="red-p"><p>Ksh</p>{price}</span>&nbsp;<strike>KSh {prevPrice}</strike>
+                        <span className="red-p"><p>Ksh</p>{price}</span>&nbsp;
+                        {/* <strike>KSh {prevPrice}</strike> */}
                     </p>
                     <div className="discount-till d-flex align-items-center gp-10">
                         <p className="mb-0">
@@ -34,15 +35,15 @@ const SpecialProduct = (props) => {
                         </div>
                     </div>
                     <div className="product-count my-3">
-                            <p>Products: 5</p>
+                            <p>Products: {productCount}</p>
                             <div className="progress">
                                 <div
                                     className="progress-bar"
                                     role="progressbar"
-                                    style={{width:"25%"}}
-                                    aria-valuenow="25"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100">
+                                    style={{ width: productCount / (productCount + sold) * 100 + "%" }}
+                                    aria-valuenow={ productCount / (productCount + sold) * 100 }
+                                    aria-valuemin={productCount}
+                                    aria-valuemax={sold + productCount}>
                                     </div>
                             </div>
                     </div>

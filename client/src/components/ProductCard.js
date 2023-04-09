@@ -13,7 +13,6 @@ const ProductCard = (props) => {
   const addToWish = (id)=> {
     dispatch(addToWishList(id))
   };
-
   return (
     <>
       {data?.map((item, index) => {
@@ -32,7 +31,7 @@ const ProductCard = (props) => {
               </div>
               <div className="product-image">
                 <img
-                  src={item?.images[0].url}
+                  src={item?.images[0]?.url}
                   className="img-fluid mx-auto"
                   alt="product image"
                   width={160}
