@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Table } from 'antd';
+import { fetchOrders } from '../features/orders/orderSlice';
+import {useDispatch, useSelector } from "react-redux";
+import {BiEdit} from "react-icons/bi";
+import {AiFillDelete} from "react-icons/ai";
+import Link from 'antd/es/typography/Link';
+
 const columns = [
     {
       title: 'SNo',
       dataIndex: 'key',
     },
     {
-      title: 'Name',
+      title: 'Order ',
       dataIndex: 'name',
     },
     {
@@ -17,18 +23,36 @@ const columns = [
       title: 'Status',
       dataIndex: 'status',
     },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+    },
   ];
-  const data1 = [];
-  for (let i = 0; i < 46; i++) {
-    data1.push({
-      key: i,
-      name: `Edward King ${i}`,
-      product: 32,
-      status: `London, Park Lane no. ${i}`,
-    });
-  }
 
 const Orders = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, []);
+  const orderState = useSelector((state) => state?.order?.orders);
+  console.log(orderState);
+  
+  const data1 = [];
+  for (let i = 0; i < orderState.length; i++) {
+    data1.push({
+      key: i + 1,
+      title: orderState[i].title,
+      action: (
+        <>
+          <Link className=' fs-3 ' to="/"> 
+            <BiEdit/> 
+          </Link>
+          <Link className='ms-3 fs-3 text-danger' to="/">
+            <AiFillDelete/>
+          </Link>
+        </>),
+    });
+  }
   return (
     <div>
         <h3 className="mb-4" title>Orders</h3>

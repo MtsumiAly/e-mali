@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import {useDispatch, useSelector } from "react-redux";
 import { getAllBrands } from '../features/brand/brandSlice';
+import {BiEdit} from "react-icons/bi";
+import {AiFillDelete} from "react-icons/ai";
+import Link from 'antd/es/typography/Link';
+
 const columns = [
     {
       title: 'SNo',
@@ -10,6 +14,7 @@ const columns = [
     {
       title: 'Title',
       dataIndex: 'title',
+      sorter: (a, b) => a.title.length - b.title.length,
     },
     {
       title: 'Action',
@@ -29,8 +34,8 @@ const Brandlist = () => {
   const data1 = [];
   for (let i = 0; i < brandState.length; i++) {
     data1.push({
-      key: i,
-      name: brandState[i].title,
+      key: i + 1,
+      title: brandState[i].title,
       action: (
         <>
           <Link className=' fs-3 ' to="/"> 
@@ -40,7 +45,6 @@ const Brandlist = () => {
             <AiFillDelete/>
           </Link>
         </>),
-    });
     });
   }
 

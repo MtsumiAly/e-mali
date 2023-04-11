@@ -25,6 +25,7 @@ const Login = () => {
     },
   });
   const userState = useSelector((state) => state.auth);
+  console.log(userState);
   useEffect(() => {
     if (userState.user) {
       navigate("admin")
