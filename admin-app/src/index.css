@@ -7,6 +7,10 @@
   --color-828599:#828599;
   --color-3d464d:#3d464d;
   --color-c3d4da:#c3d4da;
+
+
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
 }
 
 
@@ -145,4 +149,26 @@ main::-webkit-scrollbar{
 .error {
   color: red;
   font-size: 12px;
+}
+
+/* ===== MEDIA QUERIES (TABLETS AND ALL) ====== */
+@media screen and (max-width: 1024px) {
+  .container {
+      width: var(--container-width-md);
+  }
+
+  section {
+      margin-top: 6rem;
+  }
+}
+
+/* ===== MEDIA QUERIES (PHONES) ====== */
+@media only screen and (max-width: 767px) {
+  .container {
+      width: var(--container-width-sm);
+  }
+
+  section > h2 {
+      margin-bottom: 2rem;
+  }
 }

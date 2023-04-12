@@ -79,7 +79,7 @@ const getOrders = asyncHandler(async(req, res) => {
 const getOrdersAdmin = asyncHandler(async(req, res) => {
     try {
         const allOrders = await Order.find()
-            .populate("orderedBy", "firstname")
+            .populate("orderedBy", "firstName lastName email")
             .populate("products.product", "_id title price")
             .sort("-createdAt")
             .exec();
