@@ -1,9 +1,12 @@
-import {React,useState} from 'react';
+import {React, useEffect} from 'react';
 import CustomInput from '../components/CustomInput';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
+import {useDispatch, useSelector } from "react-redux";
+import { getAllBrands } from '../features/brand/brandSlice';
+
 const { Dragger } = Upload;
 const props = {
   name: 'file',
@@ -26,10 +29,17 @@ const props = {
 };
 
 const Addproduct = () => {
-  const [desc,setDesc] = useState();
-  const handleDesc = (e) => {
-      setDesc(e);
-};
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllBrands());
+  }, []);
+  const brandState = useSelector((state) => state?.brand?.brands);
+  console.log(brandState);
+  {
+    brandState?.map((brand, index) => {
+      return ( brand)
+    }) 
+  }
   return (
     <div>
         <h3 className="mb-4" title>Add Product</h3>
@@ -39,15 +49,16 @@ const Addproduct = () => {
                 <div className="mb-3">
                 <ReactQuill 
                     theme="snow" 
-                    value={desc} 
+                    // value={desc} 
                     onChange={(evt) => {
-                    handleDesc(evt);
+                    // handleDesc(evt)
+                    ;
                     }} 
                 />
                 </div> 
                 <CustomInput type="number" label="Enter Product Price"/>
                 <select name="" className="form-control py-3 mb-3" id="">
-                    <option value="">Select Brand</option>
+                    <option value={brandState.title}>Select Brand</option>
                 </select>
                 <select name="" className="form-control py-3 mb-3" id="">
                     <option value="">Select Category</option>

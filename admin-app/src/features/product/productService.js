@@ -7,6 +7,10 @@ const getProducts = async() => {
     return response.data;
 };
 
+const addProduct = async(data) => {
+    const response = await axios.post(`${base_url}products/new`, data);
+    return response.data
+};
 
 const productService = {
     getProducts,

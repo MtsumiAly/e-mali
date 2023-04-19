@@ -76,18 +76,32 @@ const getOrders = asyncHandler(async(req, res) => {
     }
 });
 
-const getOrdersAdmin = asyncHandler(async(req, res) => {
+// const getOrdersAdmin = asyncHandler(async(req, res) => {
+//     try {
+//         const allOrders = await Order.find()
+//             .populate("orderedBy")
+//             .populate("products.product", "_id title price")
+//             .sort("-createdAt")
+//             .exec();
+//         res.json(allOrders);
+//     } catch(error) {
+//         throw new Error(error);
+//     }
+// });
+const getOrdersAdmin = asyncHandler(async (req, res) => {
     try {
-        const allOrders = await Order.find()
-            .populate("orderedBy", "firstName lastName email")
-            .populate("products.product", "_id title price")
-            .sort("-createdAt")
-            .exec();
-        res.json(allOrders);
-    } catch(error) {
-        throw new Error(error);
+      const allOrders = await Order.find()
+        .populate('orderedBy')
+        .populate('products.product')
+        .sort('-createdAt')
+        .exec();
+      res.json(allOrders);
+    } catch (error) {
+      throw new Error(error);
     }
-});
+  });
+  
+
 
 
 

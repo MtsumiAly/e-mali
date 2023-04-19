@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BsArrowDownRight} from "react-icons/bs";
 import { Column } from '@ant-design/plots';
 import { Table } from 'antd';
+import { fetchOrders } from '../features/orders/orderSlice';
+import {useDispatch, useSelector } from "react-redux";
+
 const columns = [
   {
     title: 'SNo',
     dataIndex: 'key',
   },
   {
-    title: 'Name',
-    dataIndex: 'name',
+    title: 'Customer Name',
+    dataIndex: 'customerName',
   },
   {
     title: 'Product',
@@ -20,15 +23,8 @@ const columns = [
     dataIndex: 'status',
   },
 ];
-const data1 = [];
-for (let i = 0; i < 46; i++) {
-  data1.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    status: `London, Park Lane no. ${i}`,
-  });
-}
+
+
 
 const Dashboard = () => {
   const data = [
@@ -110,6 +106,21 @@ const Dashboard = () => {
       },
     },
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, []);
+  const orderState = useSelector((state) => state?.order?.orders);
+  console.log(orderState);
+  const data1 = [];
+  for (let i = 0; i < orderState.length; i++) {
+    data1.push({
+      key: orderState[i]._id,
+      customerName: orderState[i].orderedBy.firstname + " " + orderState[i].orderedBy.lastname,
+      product: orderState[i].products[0].product.title + ", " + orderState[i].products[1].product.title, 
+      status: orderState[i].paymentIntent.status,
+    });
+  }
   return(
     <div>
       <h3 className="mb-4"title>Dashboard</h3>

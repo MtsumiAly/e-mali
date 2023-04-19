@@ -12,17 +12,22 @@ const columns = [
       dataIndex: 'key',
     },
     {
-      title: 'Order ',
-      dataIndex: 'name',
+      title: 'Order Date',
+      dataIndex: 'orderDate',
     },
     {
-      title: 'Product',
-      dataIndex: 'product',
+      title: 'Customer info',
+      dataIndex: 'customer',
     },
     {
       title: 'Status',
       dataIndex: 'status',
     },
+    {
+      title: 'Total',
+      dataIndex: 'total'
+    }
+    ,
     {
       title: 'Action',
       dataIndex: 'action',
@@ -40,8 +45,11 @@ const Orders = () => {
   const data1 = [];
   for (let i = 0; i < orderState.length; i++) {
     data1.push({
-      key: i + 1,
-      title: orderState[i].title,
+      key: orderState[i]._id,
+      orderDate: orderState[i].createdAt,
+      customer: orderState[i].orderedBy.firstname + " " + orderState[i].orderedBy.lastname,
+      status: orderState[i].orderStatus,
+      total: orderState[i].paymentIntent.amount,
       action: (
         <>
           <Link className=' fs-3 ' to="/"> 
