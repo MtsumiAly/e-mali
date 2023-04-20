@@ -117,7 +117,9 @@ const Dashboard = () => {
     data1.push({
       key: orderState[i]._id,
       customerName: orderState[i].orderedBy.firstname + " " + orderState[i].orderedBy.lastname,
-      product: orderState[i].products[0].product.title + ", " + orderState[i].products[1].product.title, 
+      product: orderState[i].products.map((i) => {
+        return i.product.title;
+      }).join(", "), 
       status: orderState[i].paymentIntent.status,
     });
   }

@@ -5,6 +5,7 @@ import {useDispatch, useSelector } from "react-redux";
 import {BiEdit} from "react-icons/bi";
 import {AiFillDelete} from "react-icons/ai";
 import Link from 'antd/es/typography/Link';
+import moment from 'moment'
 
 const columns = [
     {
@@ -12,8 +13,12 @@ const columns = [
       dataIndex: 'key',
     },
     {
-      title: 'Order Date',
-      dataIndex: 'orderDate',
+      title: 'Date',
+      dataIndex: 'date'
+    },
+    {
+      title: 'Products',
+      dataIndex: 'products',
     },
     {
       title: 'Customer info',
@@ -46,7 +51,10 @@ const Orders = () => {
   for (let i = 0; i < orderState.length; i++) {
     data1.push({
       key: orderState[i]._id,
-      orderDate: orderState[i].createdAt,
+      products: orderState[i].products.map((i) => {
+        return i.product.title;
+      }).join(", "),
+      date: moment(orderState[i].createdAt).format('MMMM Do YYYY, h:mm:ss a'),
       customer: orderState[i].orderedBy.firstname + " " + orderState[i].orderedBy.lastname,
       status: orderState[i].orderStatus,
       total: orderState[i].paymentIntent.amount,

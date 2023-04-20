@@ -69,7 +69,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
             _id: admin?._id,
             firstname: admin?.firstname,
             lastname: admin?.lastname,
-            email: admin?.lastname,
+            email: admin?.email,
             mobile: admin?.mobile,
             token: generateToken(admin?._id),
         });

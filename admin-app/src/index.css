@@ -150,25 +150,3 @@ main::-webkit-scrollbar{
   color: red;
   font-size: 12px;
 }
-
-/* ===== MEDIA QUERIES (TABLETS AND ALL) ====== */
-@media screen and (max-width: 1024px) {
-  .container {
-      width: var(--container-width-md);
-  }
-
-  section {
-      margin-top: 6rem;
-  }
-}
-
-/* ===== MEDIA QUERIES (PHONES) ====== */
-@media only screen and (max-width: 767px) {
-  .container {
-      width: var(--container-width-sm);
-  }
-
-  section > h2 {
-      margin-bottom: 2rem;
-  }
-}
