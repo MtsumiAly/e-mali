@@ -1,0 +1,36 @@
+/* Hide chart in mobile devices */
+@media (max-width: 767px) {
+    .mt-4 {
+      display: none;
+    }
+    .mb4 {
+      display: block;
+    }
+  }
+  
+  /* Show only some columns in table for mobile devices */
+  @media (max-width: 767px) {
+    .ant-table-thead > tr > th:nth-child(1),
+    .ant-table-tbody > tr > td:nth-child(1),
+    .ant-table-thead > tr > th:nth-child(3),
+    .ant-table-tbody > tr > td:nth-child(3) {
+      display: none;
+    }
+    .col-md-4 {
+      display: none;
+    }
+    .my-4 {
+      display: none;
+    }
+  }
+  
+  /* Optional: Show all columns in table for tablet devices */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .ant-table-thead > tr > th:nth-child(2),
+    .ant-table-tbody > tr > td:nth-child(2),
+    .ant-table-thead > tr > th:nth-child(3),
+    .ant-table-tbody > tr > td:nth-child(3) {
+      display: table-cell;
+    }
+  }
+  

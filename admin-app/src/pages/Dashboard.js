@@ -4,6 +4,7 @@ import { Column } from '@ant-design/plots';
 import { Table } from 'antd';
 import { fetchOrders } from '../features/orders/orderSlice';
 import {useDispatch, useSelector } from "react-redux";
+import '../pages/css/dashboard.css';
 
 const columns = [
   {
@@ -111,7 +112,6 @@ const Dashboard = () => {
     dispatch(fetchOrders());
   }, []);
   const orderState = useSelector((state) => state?.order?.orders);
-  console.log(orderState);
   const data1 = [];
   for (let i = 0; i < orderState.length; i++) {
     data1.push({
@@ -125,61 +125,61 @@ const Dashboard = () => {
   }
   return(
     <div>
-      <h3 className="mb-4"title>Dashboard</h3>
+      <h3 className="mb-4"title="true">Dashboard</h3>
       <div className="d-flex justify-content-between align-items-center gap-3">
-        <div className=" d-flex justify-content-betwwen align-items-end flex-grow-1 bg-white p-3 rounded-3">
+        <div className="col-sm-12 col-md-4 col-lg-3 bg-white p-3 rounded-3">
           <div >
             <p className="desc">Total</p>
-            <h4 className="mb-0" sub-title>ksh.800</h4>
+            <h4 className="mb-0" sub-title="true">ksh.800</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
           <h6>
             <BsArrowDownRight/>48%
           </h6>
-          <p className="mb-0" desc>Compare To August 2023</p>
+          <p className="mb-0" desc="true">Compare To August 2023</p>
           </div>
         </div>
-        <div className="d-flex justify-content-betwwen align-items-end flex-grow-1 bg-white p-3 rounded-3">
+        <div className="col-sm-12 col-md-4 col-lg-3 bg-white p-3 rounded-3">
           <div>
             <p className="desc">Total</p>
-            <h4 className="mb-0" sub-title>ksh.1500</h4>
+            <h4 className="mb-0" sub-title="true">ksh.1500</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
             <h6 className='red'>
               <BsArrowDownRight/>48%
             </h6>
-            <p className="mb-0" desc>Compare To August 2023</p>
+            <p className="mb-0" desc="true">Compare To August 2023</p>
           </div>
         </div>
-        <div className="d-flex justify-content-betwwen align-items-end flex-grow-1 bg-white p-3 rounded-3">
+        <div className="col-sm-12 col-md-4 col-lg-3 bg-white p-3 rounded-3">
           <div>
             <p className="desc">Total</p>
-            <h4 className="mb-0" sub-title>ksh.1200</h4>
+            <h4 className="mb-0" sub-title="true">ksh.1200</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
             <h6 className="green">
               <BsArrowDownRight/>48%
             </h6>
-          <p className="mb-0" desc>Compare To August 2023</p>
+          <p className="mb-0" desc="true">Compare To August 2023</p>
           </div>
         </div>
       </div>
       <div className="d-flex justify-content-between  gap-3">
       <div className="mt-4">
-        <h3 className="mb-5" title>Income Statics</h3>
+        <h3 className="mb-5" title="true">Income Statics</h3>
         <div>
         <Column {...config} />;
         </div>
       </div>
-      <div className="mt-4">
-        <h3 className="mb-4" title>Recent Orders</h3>
+      <div className="mb-4">
+        <h3 className="mb-4" title="true">Recent Orders</h3>
         <div>
         <Table columns={columns} dataSource={data1} />
         </div>
       </div>
       </div>
       <div className="my-4">
-        <h3 className="mb-4" title>Recent Reviews</h3>
+        <h3 className="mb-4" title="true">Recent Reviews</h3>
         <div>
           <div></div>
           <div></div>

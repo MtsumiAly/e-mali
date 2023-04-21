@@ -43,7 +43,7 @@ function App() {
         <Route path="category-list" element={<Categorylist/>}/>
         <Route path="brand" element={<Addbrand/>}/>
         <Route path="brand-list" element={<Brandlist/>}/>
-        <Route path="product" element={<Addproduct/>}/>
+        <Route path="products" element={<Addproduct/>}/>
         <Route path="product-list" element={<Productlist/>}/>
        
         
