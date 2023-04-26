@@ -7,6 +7,7 @@ import pcategoryReducer from '../features/pcategory/pcategorySlice';
 import blogReducer from "../features/blogs/blogSlice";
 import bcategoryReducer from '../features/bcategory/bcategorySlice';
 import orderReducer from "../features/orders/orderSlice";
+import uploadReducer from "../features/upload/uploadSlice";
 
 
 export const store = configureStore({
@@ -19,5 +20,6 @@ export const store = configureStore({
         blog: blogReducer,
         blogcategory: bcategoryReducer,
         order: orderReducer,
+        upload: uploadReducer,
     },
 });

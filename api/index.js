@@ -14,6 +14,7 @@ const categoryRouter = require("./routes/categoryRoute");
 const brandRouter = require("./routes/brandRoute");
 const couponRouter = require("./routes/couponRoute");
 const orderRouter = require("./routes/orderRoute");
+const uploadRouter = require("./routes/uploadRoute");
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -34,6 +35,8 @@ app.use("/api/blogcategories", blogCatRouter);
 app.use("/api/brands", brandRouter);
 app.use("/api/coupons", couponRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/product_images", uploadRouter);
+
 app.use(notFound);
 app.use(errorHandler);
 

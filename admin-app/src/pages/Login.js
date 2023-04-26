@@ -21,10 +21,19 @@ const Login = () => {
       password: "",
     },
     validationSchema: loginSchema,
-    onSubmit: (values) => {
-       dispatch(login(values));
+    onSubmit: (values, { setSubmitting, setStatus }) => {
+      dispatch(login(values))
+        .then(() => {
+          setSubmitting(false);
+          setStatus("Login Successful!");
+        })
+        .catch(() => {
+          setSubmitting(false);
+        });
     },
   });
+  
+  
   const userState = useSelector((state) => state.auth);
   console.log(userState);
   useEffect(() => {
@@ -34,6 +43,7 @@ const Login = () => {
       navigate("")
     }
   }, [userState, navigate]);
+  console.log(formik);
   
   return (
     <div className="py-5" style={{background:"#ffd333", minHeight:"100vh"}}>
@@ -44,6 +54,9 @@ const Login = () => {
               <h3 className="text-center" title>Login</h3>
               <p className="text-center">Login to your Account to continue</p>
               <div className="error text-center">
+                <div>
+                  {formik.status && <div>{formik.status}</div>}
+                </div>
                 {userState.message == "Rejected" ? "You are not an Admin" : ""}
               </div>
               <form action="" onSubmit={formik.handleSubmit}>
@@ -52,9 +65,9 @@ const Login = () => {
                   name="email" 
                   label="Email Address" 
                   id="email" 
-                  onCh={formik.handleChange("email")}
-                  onBl={formik.handleBlur("email")}
-                  val={formik.values.email}
+                  onChange={formik.handleChange("email")}
+                  onBlur={formik.handleBlur("email")}
+                  value={formik.values.email}
                 />
                 <div className="error">
                   {formik.touched.email && formik.errors.email}
@@ -64,13 +77,13 @@ const Login = () => {
                   name="password" 
                   label="Password" 
                   id="pass" 
-                  onCh={formik.handleChange("password")}
-                  onBl={formik.handleBlur("password")}
-                  val={formik.values.password}
+                  onChange={formik.handleChange("password")}
+                  onBlur={formik.handleBlur("password")}
+                  value={formik.values.password}
                 />
                 <div className="error">
                   {formik.touched.password && formik.errors.password}
-                </div>  
+                </div> 
                 <div className='mb-3 text-end'>
                   <Link to="forgot-password">
                   Forgot Password?

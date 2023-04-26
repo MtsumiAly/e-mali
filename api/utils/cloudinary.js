@@ -7,7 +7,7 @@ cloudinary.config({
     api_secret: process.env.API_SECRET
   });
 
-const cloudinaryUploadingImg = async (fileToUploads) => {
+const cloudinaryUploadImg = async (fileToUploads) => {
     return new Promise((resolve) => {
         cloudinary.uploader.upload(fileToUploads, (result) => {
             resolve(
@@ -22,4 +22,15 @@ const cloudinaryUploadingImg = async (fileToUploads) => {
     });
 }
 
-module.exports = cloudinaryUploadingImg;
+const cloudinaryDeleteImg = async (public_id) => {
+    try {
+      const result = await cloudinary.uploader.destroy(public_id);
+      return result;
+    } catch (err) {
+      console.error(err);
+      throw new Error("Failed to delete image from Cloudinary");
+    }
+  };
+
+
+module.exports = cloudinaryUploadImg, cloudinaryDeleteImg;
