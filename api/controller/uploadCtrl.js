@@ -1,4 +1,4 @@
-const { cloudinaryUploadImg, cloudinaryDeleteImg } = require("../utils/cloudinary");
+const { cloudinaryUploadImg, cloudinaryDeleteImg, } = require("../utils/cloudinary");
 const asyncHandler = require("express-async-handler");
 const fs = require("fs");
 
@@ -19,19 +19,26 @@ const uploadImages = asyncHandler(async(req, res) => {
         });
         res.json(images);
     } catch (error) {
+        console.log(error);
         throw new Error(error);
     }
 });
 
+
 const deleteImages = asyncHandler(async(req, res) => {
-    const { id } = req.params;
-    try {
-        const deletedImage = await cloudinaryDeleteImg(id, "images");
-        res.json({message: "Deleted"})
-    } catch (error) {
-        throw new Error (error);
+  const { id } = req.params;
+  try {
+    const deletedImage = await cloudinaryDeleteImg(id);
+    if (deletedImage.result === "not found") {
+      res.status(404).json({ message: "Image not found in Cloudinary" });
+    } else {
+      res.json({ message: "Deleted" });
     }
-})
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 
 module.exports = {
     uploadImages,

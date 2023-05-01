@@ -14,32 +14,18 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
-// export const addNewProduct = createAsyncThunk(
-//   "products/addNewProduct",
-//   async (newProductData) => {
-//     try {
-//       const response = await productService.addProduct(newProductData);
-//       return response;
-//     } catch (error) {
-//       throw new Error(error.response.data.error);
-//     }
-//   }
-// );
-
 export const addNewProduct = createAsyncThunk(
-  "product/addNewProduct",
-  async (product, { rejectWithValue }) => {
+  "products/addNewProduct",
+  async (newProductData) => {
     try {
-      const response = await axios.post("/api/products/new", product);
-      return response.data;
-    } catch (err) {
-      if (err.response.status === 409) {
-        return rejectWithValue("Product already exists");
-      }
-      return rejectWithValue(err.response.data.message);
+      const response = await productService.addProduct(newProductData);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
     }
   }
 );
+
 
 
 const initialState = {

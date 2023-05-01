@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { getAllBrands } from '../features/brand/brandSlice';
 import { fetchCategories } from '../features/pcategory/pcategorySlice';
 import { addNewProduct } from '../features/product/productSlice';
+import { deleteImage, uploadImage } from '../features/upload/uploadSlice';
 
 const prodSchema = yup.object().shape({
   title: yup.string().required("Title is Required"),
@@ -36,12 +37,26 @@ const prodSchema = yup.object().shape({
 const Addproduct = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("")
+  const [images, setImages] = useState([]);
   useEffect(() => {
     dispatch(getAllBrands());
     dispatch(fetchCategories());
   }, []);
   const brandState = useSelector((state) => state?.brand?.brands);
   const pcategoryState = useSelector((state) => state?.pcategory?.productCategories);
+  const imageState = useSelector((state) => state?.upload?.images);
+  console.log(imageState);
+
+  const img = [];
+  imageState.forEach((i) => {
+    img.push({
+      public_id: i.public_id,
+      url: i.url,
+    });
+  });
+  useEffect(() => {
+    formik.values.images = img;
+  }, [img]);
 
   const formik = useFormik({
     initialValues: {
@@ -52,6 +67,7 @@ const Addproduct = () => {
       category: "",
       quantity: "",
       size: "",
+      images: [],
     },
     validationSchema: prodSchema,
     // onSubmit: (values) => {
@@ -172,7 +188,7 @@ const Addproduct = () => {
                   {formik.touched.quantity && formik.errors.quantity}
                 </div>
                 <div className='bg-white border-1 p-5 text-center'>
-                  <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+                  <Dropzone onDrop={acceptedFiles => dispatch(uploadImage(acceptedFiles))}>
                     {({getRootProps, getInputProps}) => (
                       <section>
                         <div {...getRootProps()}>
@@ -182,6 +198,23 @@ const Addproduct = () => {
                       </section>
                     )}
                   </Dropzone>
+                </div>
+                <div className='showimages d-flex flex-wrap gap-3'>
+                  {
+                    imageState?.map((i, j) => {
+                      return (
+                        <div className='position-relative' key={j}>
+                          <button
+                          type="button"
+                          onClick={() => dispatch(deleteImage(i.public_id))}
+                          className='btn-close position-absolute '
+                          style={{ top: "10px", right: "10px" }}
+                          ></button>
+                          <img src={i.url} alt="" width={200} height={200} />
+                        </div>
+                      );
+                    })
+                  }
                 </div>
                 <button 
                     className="btn btn-success border-0 rounded-3 my-5" 
