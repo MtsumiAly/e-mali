@@ -6,11 +6,13 @@ import 'react-quill/dist/quill.snow.css';
 import { useFormik } from "formik"
 import * as yup from "yup";
 import '../pages/css/addproduct.css';
+// import `react-toastify/dist/ReactToastify.css`;
 import {useDispatch, useSelector} from "react-redux";
 import { getAllBrands } from '../features/brand/brandSlice';
 import { fetchCategories } from '../features/pcategory/pcategorySlice';
 import { addNewProduct } from '../features/product/productSlice';
 import { deleteImage, uploadImage } from '../features/upload/uploadSlice';
+import { Navigate } from 'react-router-dom';
 
 const prodSchema = yup.object().shape({
   title: yup.string().required("Title is Required"),
@@ -29,6 +31,7 @@ const prodSchema = yup.object().shape({
   brand: yup.string().required("Brand is required"),
   category: yup.string().required("Category is required"),
   quantity: yup.number().required("Product Quantity is required"),
+  tags: yup.string().required("Product tags are required"),
   size: yup.string().required("Product size is required")
 });
 
@@ -68,20 +71,16 @@ const Addproduct = () => {
       quantity: "",
       size: "",
       images: [],
+      tags: "",
     },
     validationSchema: prodSchema,
-    // onSubmit: (values) => {
-    //    dispatch(addNewProduct(values));
-    // },
     onSubmit: (values) => {
-      dispatch(addNewProduct(values))
-        .then((result) => {
-          setMessage(result.payload || "Product added successfully");
-          formik.resetForm();
-        })
-        .catch((err) => setMessage(err.payload));
-   },
-
+       dispatch(addNewProduct(values));
+       formik.resetForm();
+       setTimeout(() => {
+        navigate("/admin/product-list");
+       }, 3000);
+    },
   });
   console.log(formik)
   return (
@@ -186,6 +185,24 @@ const Addproduct = () => {
                 />
                 <div className='error-text'>
                   {formik.touched.quantity && formik.errors.quantity}
+                </div>
+                <select 
+                  name="tags" 
+                  className="form-control py-3 mb-3" 
+                  id="" 
+                  onBlur={formik.handleBlur("tags")}
+                  onChange={formik.handleChange("tags")}
+                  value={formik.values.tags}
+                >
+                    <option value="" disabled>
+                      Select Tag
+                    </option>
+                    <option value="featured">Featured</option>
+                    <option value="popular">Popular</option>
+                    <option value="special">Special</option>
+                </select>
+                <div className='error-text'>
+                  {formik.touched.tags && formik.errors.tags}
                 </div>
                 <div className='bg-white border-1 p-5 text-center'>
                   <Dropzone onDrop={acceptedFiles => dispatch(uploadImage(acceptedFiles))}>
