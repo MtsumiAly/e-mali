@@ -13,9 +13,20 @@ const getProductCategory = async() => {
     }
 };
 
+const addCategory = async(data) => {
+    try{
+        const response = await axios.post(`${base_url}categories/new`, data, config);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
+
 
 const pcategoryService = {
     getProductCategory,
+    addCategory
 };
 
 export default pcategoryService;

@@ -13,8 +13,22 @@ export const fetchBlogCategories = createAsyncThunk(
   }
 );
 
+export const addNewBlogCategory = createAsyncThunk(
+  "bcategory/addNewBlogCategory",
+  async (newBlogCategoryData) => {
+    try {
+      const response = await bcategoryService.addBlogCategory(newBlogCategoryData);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
+
 const initialState = {
     blogCategories: [],
+    newBlogCategory: [],
     isError: false,
     isLoading: false,
     isSuccess: false,
@@ -34,9 +48,27 @@ export const bcategorySlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.blogCategories = action.payload;
-        state.message = "Successfully fulfilled Blog category promise";
+        state.message = "Successfully Got All Blog Categories";
       })
       .addCase(fetchBlogCategories.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload.message;
+      })
+      .addCase(addNewBlogCategory.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+        state.message = "Waiting for promise";
+      })
+      .addCase(addNewBlogCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.newBlogCategory = action.payload;
+        state.message = "New Blog Category Added Successfully";
+      })
+      .addCase(addNewBlogCategory.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload.message;

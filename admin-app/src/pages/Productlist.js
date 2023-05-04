@@ -48,7 +48,6 @@ const columns = [
 
 const Productlist = () => {
   const productState = useSelector((state) => state?.product?.products);
-  console.log(productState);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());

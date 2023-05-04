@@ -16,6 +16,8 @@ import {
   AiOutlineShoppingCart,
   AiOutlineBgColors
 } from "react-icons/ai";
+import { ToastContainer } from 'react-toastify';
+import 'react-quill/dist/quill.snow.css';
 import {Outlet} from "react-router-dom";
 import { Layout, Menu, theme } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -217,6 +219,17 @@ const Mainlayout = () => {
           }}
         >
           <Outlet/>
+          <ToastContainer
+          position='top-right'
+          autoClose={250}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          theme='light'
+          />
         </Content>
       </Layout>
     </Layout>

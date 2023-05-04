@@ -12,9 +12,20 @@ const getBrands = async() => {
     }
 };
 
+const addBrand = async(data) => {
+    try{
+        const response = await axios.post(`${base_url}brands/new`, data, config);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
+
 
 const brandService = {
     getBrands,
+    addBrand
 };
 
 export default brandService;

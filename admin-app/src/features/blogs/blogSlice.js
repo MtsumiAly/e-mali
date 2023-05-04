@@ -13,8 +13,21 @@ export const fetchBlogs = createAsyncThunk(
   }
 );
 
+export const addNewBlogCategory = createAsyncThunk(
+  "blogs/addNewBlogCategory",
+  async (newBlogCategoryData) => {
+    try {
+      const response = await blogService.addBrand(newBlogCategoryData);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
 const initialState = {
   blogs: [],
+  newBlogCategory: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -34,7 +47,7 @@ export const blogSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.blogs = action.payload;
-        state.message = "Successfully fulfilled getblog promise";
+        state.message = "Successfully Got all blogs";
       })
       .addCase(fetchBlogs.rejected, (state, action) => {
         state.isLoading = false;

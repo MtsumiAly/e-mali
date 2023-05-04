@@ -2,17 +2,18 @@ import {React, useEffect, useState} from 'react';
 import Dropzone from 'react-dropzone'
 import CustomInput from '../components/CustomInput';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import { useFormik } from "formik"
 import * as yup from "yup";
 import '../pages/css/addproduct.css';
-// import `react-toastify/dist/ReactToastify.css`;
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { getAllBrands } from '../features/brand/brandSlice';
 import { fetchCategories } from '../features/pcategory/pcategorySlice';
 import { addNewProduct } from '../features/product/productSlice';
 import { deleteImage, uploadImage } from '../features/upload/uploadSlice';
-import { Navigate } from 'react-router-dom';
+
 
 const prodSchema = yup.object().shape({
   title: yup.string().required("Title is Required"),
@@ -39,8 +40,7 @@ const prodSchema = yup.object().shape({
 
 const Addproduct = () => {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState("")
-  const [images, setImages] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getAllBrands());
     dispatch(fetchCategories());
@@ -48,7 +48,18 @@ const Addproduct = () => {
   const brandState = useSelector((state) => state?.brand?.brands);
   const pcategoryState = useSelector((state) => state?.pcategory?.productCategories);
   const imageState = useSelector((state) => state?.upload?.images);
-  console.log(imageState);
+  const newProduct = useSelector((state) => state?.product);
+  const { isSuccess, isError, isLoading, message } = newProduct;
+  console.log();
+  useEffect(() => {
+    if (isSuccess && message == "Successfully added a new product" > 0) {
+      toast.success("Product Added Successfully!");
+    }
+    if (isError) {
+      toast.error("Something went wrong!");
+    }
+  }, [isSuccess, isError, isLoading ]);
+
 
   const img = [];
   imageState.forEach((i) => {
@@ -82,7 +93,7 @@ const Addproduct = () => {
        }, 3000);
     },
   });
-  console.log(formik)
+  
   return (
     <div>
         <h3 className="mb-4" title="true">Add Product</h3>

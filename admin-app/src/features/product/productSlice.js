@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import productService from "./productService";
-import axios from "axios";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -30,7 +29,7 @@ export const addNewProduct = createAsyncThunk(
 
 const initialState = {
   products: [],
-  newProduct: "",
+  createdProduct: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -50,7 +49,7 @@ export const productSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.products = action.payload;
-        state.message = "Successfully fulfilled products promise";
+        state.message = "Successfully got all the Products";
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.isLoading = false;
@@ -59,12 +58,13 @@ export const productSlice = createSlice({
       })
       .addCase(addNewProduct.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
       })
       .addCase(addNewProduct.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.newProduct = action.payload;
-        state.message = "Successfully added new product";
+        state.message = "Successfully added a new product";
+        state.createdProduct = action.payload;
       })
       .addCase(addNewProduct.rejected, (state, action) => {
         state.isLoading = false;
