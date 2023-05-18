@@ -13,6 +13,7 @@ const createBrand = asyncHandler(async (req, res) => {
 
 const updateBrand = asyncHandler(async (req, res) => {
     const { id } = req.params;
+    console.log(id);
     validateMongoDbId(id);
     try {
         const brand = await Brand.findByIdAndUpdate(id, req.body, {new:true});

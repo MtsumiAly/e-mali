@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from 'react';
+import { React, useEffect } from 'react';
 import Dropzone from 'react-dropzone'
 import CustomInput from '../components/CustomInput';
 import ReactQuill from 'react-quill';
@@ -89,7 +89,7 @@ const Addproduct = () => {
        dispatch(addNewProduct(values));
        formik.resetForm();
        setTimeout(() => {
-        navigate("/admin/product-list");
+        navigate("/admin/products");
        }, 3000);
     },
   });

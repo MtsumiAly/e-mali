@@ -22,10 +22,44 @@ const addBrand = async(data) => {
     }
 };
 
+const getBrandById = async(id) => {
+    try{
+        const response = await axios.get(`${base_url}brands/${id}`, config);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
+
+const updateBrand = async(data) => {
+    try{
+        const response = await axios.put(`${base_url}brands/${data.id}`, { title: data.brandData.title }, config);
+        console.log(response);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
+
+const deleteBrand = async(id) => {
+    try{
+        const response = await axios.delete(`${base_url}brands/${id}`, config);
+        console.log(response);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
 
 const brandService = {
     getBrands,
-    addBrand
+    addBrand,
+    getBrandById,
+    updateBrand,
+    deleteBrand,
 };
 
 export default brandService;

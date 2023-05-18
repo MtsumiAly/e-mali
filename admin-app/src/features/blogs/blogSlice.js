@@ -13,11 +13,11 @@ export const fetchBlogs = createAsyncThunk(
   }
 );
 
-export const addNewBlogCategory = createAsyncThunk(
-  "blogs/addNewBlogCategory",
-  async (newBlogCategoryData) => {
+export const addNewBlog = createAsyncThunk(
+  "blogs/addNewBlog",
+  async (newBlogData) => {
     try {
-      const response = await blogService.addBrand(newBlogCategoryData);
+      const response = await blogService.addBlog(newBlogData);
       return response;
     } catch (error) {
       throw new Error(error.response.data.error);
@@ -27,7 +27,7 @@ export const addNewBlogCategory = createAsyncThunk(
 
 const initialState = {
   blogs: [],
-  newBlogCategory: [],
+  createdBlog: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -53,6 +53,21 @@ export const blogSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload.message;
+      })
+      .addCase(addNewBlog.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+      })
+      .addCase(addNewBlog.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = "Successfully Added A New Blog";
+        state.createdBlog = action.payload;
+      })
+      .addCase(addNewBlog.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.error.message;
       });
   },
 });

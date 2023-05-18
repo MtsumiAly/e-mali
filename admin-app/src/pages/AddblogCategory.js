@@ -35,7 +35,7 @@ const AddblogCategory = () => {
       dispatch(addNewBlogCategory(values));
       formik.resetForm();
       setTimeout(() => {
-        navigate("/admin/blog-category-list");
+        navigate("/admin/blog-categories");
         }, 3000);
     },
   });

@@ -10,6 +10,7 @@ import {ImBlog} from "react-icons/im";
 import {GiConversation} from "react-icons/gi";
 import {IoIosNotifications} from "react-icons/io";
 import {FaClipboardList,FaBlogger} from "react-icons/fa";
+import { RiCoupon5Fill } from "react-icons/ri"
 import {
   AiOutlineDashboard,
   AiOutlineUser,
@@ -56,9 +57,9 @@ const Mainlayout = () => {
               label: 'Dashboard',
             },
             {
-              key: 'customer',
+              key: 'customers',
               icon: < AiOutlineUser className="fs-4"/>,
-              label: 'Customer',
+              label: 'Customers',
             },
             {
               key: 'catalog',
@@ -66,32 +67,32 @@ const Mainlayout = () => {
               label: 'Catalog',
               children:[
                 {
-                  key: 'products',
+                  key: 'new-product',
                   icon: < AiOutlineShoppingCart className="fs-4"/>,
                   label: 'Add Product', 
                 },
                 {
-                  key: 'product-list',
+                  key: 'products',
                   icon: < AiOutlineShoppingCart className="fs-4"/>,
-                  label: 'Product-List', 
+                  label: 'Product List', 
                 },
                 {
-                  key:'brand',
+                  key:'new-brand',
                   icon:<SiBrandfolder className="fs-4"/>,
-                  label:'Brand',
+                  label:'Add Brand',
                 },
                 {
-                  key:'brand-list',
+                  key:'brands',
                   icon:<SiBrandfolder className="fs-4"/>,
                   label:'Brand List',
                 },
                 {
-                  key:'category',
+                  key:'new-category',
                   icon:<BiCategoryAlt className="fs-4"/>,
-                  label:'Category',
+                  label:'Add Category',
                 },
                 {
-                  key:'category-list',
+                  key:'categories',
                   icon:<BiCategoryAlt className="fs-4"/>,
                   label:'Category List',
                 },
@@ -113,12 +114,29 @@ const Mainlayout = () => {
               label: 'Orders',
             },
             {
+              key: 'marketing',
+              icon: < RiCoupon5Fill className="fs-4"/>,
+              label: 'Marketing',
+              children:[
+                {
+                  key: 'new-coupon',
+                  icon: < ImBlog className="fs-4"/>,
+                  label: 'Add Coupon',
+                },
+                {
+                  key: 'coupons',
+                  icon: < RiCoupon5Fill className="fs-4"/>,
+                  label: 'Coupon List',
+                },
+              ],
+            },
+            {
               key: 'blogs',
               icon: < FaBlogger className="fs-4"/>,
               label: 'Blogs',
               children:[
                 {
-                  key: 'blog',
+                  key: 'new-blog',
                   icon: < ImBlog className="fs-4"/>,
                   label: 'Add Blog',
                 },
@@ -128,12 +146,12 @@ const Mainlayout = () => {
                   label: 'Blog List',
                 },
                 {
-                  key: 'blog-category',
+                  key: 'new-blog-category',
                   icon: < ImBlog className="fs-4"/>,
                   label: 'Add Blog category',
                 },
                 {
-                  key: 'blog-category-list',
+                  key: 'blog-categories',
                   icon: < FaBlogger className="fs-4"/>,
                   label: 'Blog category List',
                 },

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import brandService from "./brandService";
 
 export const getAllBrands = createAsyncThunk("brands/getAll", async (_, thunkAPI) => {
@@ -22,10 +22,49 @@ export const addNewBrand = createAsyncThunk(
   }
 );
 
+export const getABrand = createAsyncThunk(
+  "brands/getABrand",
+  async (id) => {
+    try {
+      const response = await brandService.getBrandById(id);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
+export const updateABrand = createAsyncThunk(
+  "brands/updateABrand",
+  async (id, brandData) => {
+    try {
+      const response = await brandService.updateBrand(id, brandData);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
+export const deleteABrand = createAsyncThunk(
+  "brands/deleteABrand",
+  async (id) => {
+    try {
+      const response = await brandService.deleteBrand(id);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
 
 const initialState = {
   brands: [],
   newBrand: [],
+  brand: [],
+  updatedBrand: [],
+  deletedBrand: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -67,6 +106,60 @@ export const brandSlice = createSlice({
         state.message = "New brand added successfully";
       })
       .addCase(addNewBrand.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload.message;
+      })
+      .addCase(getABrand.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+        state.message = "";
+      })
+      .addCase(getABrand.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.brand = action.payload.title;
+        state.message = `Successfully Got Your Brand By ID: ${state.brand}`;
+      })
+      .addCase(getABrand.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload.message;
+      })
+      .addCase(updateABrand.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+        state.message = "";
+      })
+      .addCase(updateABrand.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.updatedBrand = action.payload.title;
+        state.message = "Successfully Updated The Brand";
+      })
+      .addCase(updateABrand.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload.message;
+      })
+      .addCase(deleteABrand.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isSuccess = false;
+        state.message = "";
+      })
+      .addCase(deleteABrand.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.deletedBrand = action.payload.title;
+        state.message = "Successfully Deleted The Brand!";
+      })
+      .addCase(deleteABrand.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload.message;

@@ -8,8 +8,19 @@ const getBlogs = async() => {
     return response.data;
 };
 
+const addBlog = async(data) => {
+    try{
+        const response = await axios.post(`${base_url}blogs/new`, data, config);
+        return response.data
+    } catch (error) {
+        console.log(error.response.data);
+        throw error;
+    }
+};
 
 const blogService = {
-    getBlogs,};
+    getBlogs,
+    addBlog,
+};
 
 export default blogService;
