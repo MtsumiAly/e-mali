@@ -42,7 +42,7 @@ const Addcategory = () => {
       formik.resetForm();
       setTimeout(() => {
         navigate("/admin/categories");
-        }, 5000);
+        }, 500);
     },
   });
 

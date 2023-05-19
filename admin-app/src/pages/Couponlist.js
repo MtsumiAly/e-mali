@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import {useDispatch, useSelector } from "react-redux";
 import {BiEdit} from "react-icons/bi";
 import {AiFillDelete} from "react-icons/ai";
-import Link from 'antd/es/typography/Link';
-import { getAllCoupons } from '../features/coupon/couponSlice';
+import CustomModal from '../components/CustomModal';
+import { Link } from 'react-router-dom'
+import { deleteACoupon, getAllCoupons } from '../features/coupon/couponSlice';
+import { toast } from "react-toastify";
 
 const columns = [
     {
@@ -22,7 +24,7 @@ const columns = [
         sorter: (a, b) => a.expiry.length - b.expiry.length,
       },
       {
-        title: 'Coupon DIscount',
+        title: 'Coupon Discount',
         dataIndex: 'discount',
         sorter: (a, b) => a.discount.length - b.discount.length,
       },
@@ -34,12 +36,24 @@ const columns = [
   
 
 const Couponlist = () => {
+  const [open, setOpen] = useState(false);
+  const [couponId, setCouponId] = useState("");
+
+  const showModal = (e) => {
+    setOpen(true);
+    setCouponId(e);
+  };
+  console.log(couponId);
+  const hideModal = () => {
+    setOpen(false);
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCoupons());
   }, []);
   const couponState = useSelector((state) => state?.coupon?.coupons);
   console.log(couponState);
+  
   
   const data1 = [];
   for (let i = 0; i < couponState.length; i++) {
@@ -50,22 +64,56 @@ const Couponlist = () => {
       discount: couponState[i].discount,
       action: (
         <>
-          <Link className=' fs-3 ' to="/"> 
-            <BiEdit/> 
+          <Link 
+            to={`/admin/new-coupon/${couponState[i]._id}`} 
+            className=' fs-3 text-danger'
+          > 
+            <BiEdit/>
           </Link>
-          <Link className='ms-3 fs-3 text-danger' to="/">
+          <button 
+            className='ms-3 fs-3 text-danger bg-transparent border-0' 
+            onClick={() => showModal(couponState[i]._id)}
+          >
             <AiFillDelete/>
-          </Link>
+          </button>
         </>),
     });
   }
 
+  const couponData = useSelector((state) => state?.coupon);
+  const { isSuccess, isError, isLoading, message, deletedCoupon } = couponData;
+
+
+  useEffect(() => {
+    if (isSuccess && message === "Successfully Deleted The Coupon!") {
+      toast.success("Coupon Deleted Successfully!");
+    }
+    if (isError) {
+      toast.error("Something went wrong!");
+    }
+  }, [message]);
+
+  const deleteCoupon = (e) => {
+    dispatch(deleteACoupon(e));
+    setOpen(false);
+    setTimeout(() => {
+      dispatch(getAllCoupons());  
+    }, 100);
+  };
+
   return (
     <div>
-    <h3 className="mb-4" title>Coupons</h3>
-    <div>
-    <Table columns={columns} dataSource={data1} />
-    </div>
+      <h3 className="mb-4" title>Coupons</h3>
+      <div>
+        <Table columns={columns} dataSource={data1} />
+      </div>
+      <CustomModal
+        hideModal={hideModal}
+        open={open}
+        performAction={() => {
+          deleteCoupon(couponId);
+        }}
+        title="Are you sure you want to delete this Coupon?"/>
     </div>
   );
 };
