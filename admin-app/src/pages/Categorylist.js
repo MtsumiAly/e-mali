@@ -34,7 +34,7 @@ const Categorylist = () => {
     setOpen(true);
     setCategoryId(e);
   };
-  console.log(categoryId);
+  
   const hideModal = () => {
     setOpen(false);
   };
@@ -71,7 +71,7 @@ const Categorylist = () => {
   }
 
   const categoryData = useSelector((state) => state?.pcategory);
-  const { isSuccess, isError, isLoading, message, deletedPCategory } = categoryData;
+  const { isSuccess, isError, message, deletedPCategory } = categoryData;
 
   useEffect(() => {
     if (isSuccess && message === "Successfully Deleted The Product Category!") {

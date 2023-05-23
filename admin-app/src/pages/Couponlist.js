@@ -7,6 +7,7 @@ import CustomModal from '../components/CustomModal';
 import { Link } from 'react-router-dom'
 import { deleteACoupon, getAllCoupons } from '../features/coupon/couponSlice';
 import { toast } from "react-toastify";
+import moment from 'moment';
 
 const columns = [
     {
@@ -53,14 +54,18 @@ const Couponlist = () => {
   }, []);
   const couponState = useSelector((state) => state?.coupon?.coupons);
   console.log(couponState);
+  const formatDate = (date) => {
+    return moment(date, 'YYYY-MM-DD').format('dddd, MMMM Do');
+  };
   
   
   const data1 = [];
   for (let i = 0; i < couponState.length; i++) {
+    const formattedExpiry = formatDate(couponState[i].expiry)
     data1.push({
       key: i + 1,
       name: couponState[i].name,
-      expiry: couponState[i].expiry,
+      expiry: formattedExpiry,
       discount: couponState[i].discount,
       action: (
         <>

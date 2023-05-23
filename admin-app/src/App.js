@@ -53,7 +53,7 @@ function App() {
         <Route path="new-brand/:id" element={<Addbrand/>}/>
         <Route path="new-category/:id" element={<Addcategory/>}/>
         <Route path="new-coupon/:id" element={<Addcoupon/>}/>
-       
+        <Route path="new-blog-category/:id" element={<AddblogCategory/>}/>
         
       </Route>
       </Routes>

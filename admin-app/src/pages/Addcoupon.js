@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { addNewCoupon, getACoupon, updateACoupon } from '../features/coupon/couponSlice';
+import moment from 'moment'
 
 let schema = yup.object().shape({
   name: yup.string().required("Coupon Name is Required"),
@@ -20,6 +21,35 @@ const Addcoupon = () => {
   const createdCoupon = useSelector((state) => state?.coupon);
   const { isSuccess, isError, isLoading, message, coupon } = createdCoupon;
   
+  const dateFormatter = (date) => {
+    const parsedDate = moment(date, 'dddd, MMMM Do');
+    const formattedDate = parsedDate.format('YYYY-MM-DD');
+    return formattedDate;
+  };
+
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: {
+      name: coupon.name || "",
+      expiry: dateFormatter(coupon.expiry) || "",
+      discount: coupon.discount || "",
+    },
+    validationSchema: schema,
+    onSubmit: (values) => {
+      if (couponId !== undefined) {
+        const data = { id: couponId, couponData: values };
+        console.log(data);
+        dispatch(updateACoupon(data));
+      } else {
+        dispatch(addNewCoupon(values));
+      }
+      formik.resetForm();
+      setTimeout(() => {
+        navigate("/admin/coupons");
+        }, 1000);
+    },
+  });
+
   useEffect(() => {
     if (couponId !== undefined) {
       dispatch(getACoupon(couponId));
@@ -28,27 +58,7 @@ const Addcoupon = () => {
     }
   }, [couponId])
 
-  const formik = useFormik({
-    enableReinitialize: true,
-    initialValues: {
-      name: coupon.name || "",
-      expiry: coupon.expiry || "",
-      discount: coupon.discount || "",
-    },
-    validationSchema: schema,
-    onSubmit: (values) => {
-      if (couponId !== undefined) {
-        const data = { id: couponId, couponData: values };
-        dispatch(updateACoupon(data));
-      } else {
-        dispatch(addNewCoupon(values));
-      }
-      formik.resetForm();
-      setTimeout(() => {
-        navigate("/admin/coupons");
-        }, 3000);
-    },
-  });
+  
   
   useEffect(() => {
     if (isSuccess && message == "New Coupon Added Successfully") {
